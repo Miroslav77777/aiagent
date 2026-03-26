@@ -3,7 +3,9 @@
 import asyncio
 import logging
 
+from config import ADMIN_USER_ID
 from core.bot import bot, dp
+from core.middleware import AdminOnlyMiddleware
 from core.registry import registry
 
 # Импортируем роутеры хендлеров
@@ -20,6 +22,10 @@ async def main() -> None:
     count = registry.load_all_from_disk()
     if count:
         logger.info("Loaded %d plugin(s) from disk", count)
+
+    # Middleware: только админ может писать боту
+    dp.message.middleware(AdminOnlyMiddleware())
+    logger.info("Access restricted to user_id=%d", ADMIN_USER_ID)
 
     # Подключаем роутеры (порядок важен!)
     # 1. /start — приоритет
