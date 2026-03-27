@@ -1,4 +1,4 @@
-"""Хендлер чата — единая точка входа для всех текстовых сообщений."""
+"""Главный catch-all хендлер."""
 
 import logging
 import re
@@ -9,7 +9,7 @@ from aiogram.types import Message
 from core.context import PluginContext
 from core.history import history
 from core.registry import registry
-from handlers.selfmod import handle_selfmod
+from handlers.selfmod import handle_action
 from handlers.weather import handle_weather
 from services.llm import route_user_message, generate_chat_reply
 from services.weather_api import WeatherError
@@ -29,53 +29,49 @@ def _build_context(message: Message) -> PluginContext:
 
 @router.message()
 async def main_handler(message: Message) -> None:
-    """Главный catch-all: плагины -> LLM-роутер (selfmod/weather/chat)."""
     user_text = (message.text or "").strip()
     if not user_text:
-        await message.answer("Я пока умею работать только с текстовыми сообщениями.")
+        await message.answer("Только текст.")
         return
 
-    # 1. Динамические плагины — проверяем первыми
+    # 1. Динамические плагины
     ctx = _build_context(message)
     if await registry.try_dispatch(ctx):
         return
 
-    # Записываем сообщение пользователя в историю
     history.add_user(user_text)
 
-    # 2. LLM-роутер решает что делать (с контекстом истории)
+    # 2. LLM-роутер
     try:
         route = await route_user_message(user_text, history.get_messages())
 
-        # Фоллбэк: слово «погода» в тексте
-        if route.get("intent") == "chat" and re.search(
-            r"\bпогод", user_text, re.IGNORECASE
-        ):
+        # Фоллбэк: «погода» в тексте
+        if route.get("intent") == "chat" and re.search(r"\bпогод", user_text, re.IGNORECASE):
             route["intent"] = "weather"
 
         intent = route["intent"]
 
-        if intent == "selfmod":
-            action = route.get("selfmod_action") or user_text
-            await handle_selfmod(message, action)
+        if intent == "action":
+            desc = route.get("action_description") or user_text
+            atype = route.get("action_type")
+            await handle_action(message, desc, atype, ctx)
             return
 
         if intent == "weather":
             await handle_weather(message, route)
-            # Записываем факт получения погоды в историю
-            history.add_assistant("[Отправил информацию о погоде]")
+            history.add_assistant("[Отправил погоду]")
             return
 
-        # Обычный чат — с полной историей
+        # Чат
         reply = await generate_chat_reply(user_text, history.get_messages())
         await message.answer(reply)
         history.add_assistant(reply)
 
     except WeatherError as e:
-        error_msg = f"Не получилось получить погоду: {e}"
-        await message.answer(error_msg)
-        history.add_assistant(error_msg)
+        msg = f"Не получилось: {e}"
+        await message.answer(msg)
+        history.add_assistant(msg)
     except Exception:
         logger.exception("Ошибка в main_handler")
-        await message.answer("Произошла ошибка при обработке запроса.")
-        history.add_assistant("[Произошла внутренняя ошибка]")
+        await message.answer("Ошибка.")
+        history.add_assistant("[Ошибка]")

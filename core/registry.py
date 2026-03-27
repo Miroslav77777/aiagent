@@ -129,15 +129,27 @@ class PluginRegistry:
         return count
 
     def load_from_code(self, name: str, code: str) -> None:
-        """Выполнить код плагина через exec и зарегистрировать его.
-
-        Код плагина должен определить переменные:
-          PLUGIN_NAME, PLUGIN_DESCRIPTION, TRIGGER_TYPE, TRIGGER_VALUE
-        и async-функцию handle(ctx).
-        """
+        """Выполнить код плагина через exec и зарегистрировать его."""
         namespace = self._make_namespace()
         exec(compile(code, f"<plugin:{name}>", "exec"), namespace)
         self._extract_and_register(namespace, code)
+
+    def test_code(self, code: str) -> dict[str, Any]:
+        """Тестовый exec — не регистрирует, только проверяет.
+        Возвращает namespace или бросает исключение."""
+        namespace = self._make_namespace()
+        exec(compile(code, "<test>", "exec"), namespace)
+        return namespace
+
+    async def run_script(self, code: str, ctx) -> str:
+        """Выполнить одноразовый скрипт. Должен определить async def run(ctx)."""
+        namespace = self._make_namespace()
+        exec(compile(code, "<script>", "exec"), namespace)
+        run_fn = namespace.get("run")
+        if run_fn is None or not callable(run_fn):
+            raise ValueError("Script must define async def run(ctx)")
+        result = await run_fn(ctx)
+        return str(result) if result is not None else ""
 
     # ---------- Внутреннее ----------
 
@@ -208,6 +220,8 @@ class PluginRegistry:
             "safe_import": safe_import,
             "env_set": env_set,
             "env_get": env_get,
+            "read_bot_file": read_bot_file,
+            "write_bot_file": write_bot_file,
         }
 
 
@@ -279,6 +293,31 @@ def env_set(key: str, value: str) -> None:
 
     ENV_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
     logger.info("env_set: %s=%s", key, "***" if "key" in key.lower() or "token" in key.lower() or "secret" in key.lower() else value)
+
+
+# ── Файлы бота ───────────────────────────────────────────────────────
+
+BOT_ROOT = Path(__file__).resolve().parent.parent
+
+
+def read_bot_file(relative_path: str) -> str:
+    """Прочитать файл из директории бота."""
+    path = (BOT_ROOT / relative_path).resolve()
+    if not str(path).startswith(str(BOT_ROOT)):
+        raise ValueError(f"Нельзя читать за пределами проекта: {relative_path}")
+    if not path.exists():
+        raise FileNotFoundError(f"Файл не найден: {relative_path}")
+    return path.read_text(encoding="utf-8")
+
+
+def write_bot_file(relative_path: str, content: str) -> None:
+    """Записать файл в директорию бота."""
+    path = (BOT_ROOT / relative_path).resolve()
+    if not str(path).startswith(str(BOT_ROOT)):
+        raise ValueError(f"Нельзя писать за пределами проекта: {relative_path}")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content, encoding="utf-8")
+    logger.info("write_bot_file: %s (%d bytes)", relative_path, len(content))
 
 
 # Глобальный singleton

@@ -12,9 +12,11 @@ from config import OLLAMA_BASE_URL, OLLAMA_MODEL
 
 logger = logging.getLogger(__name__)
 
+BOT_ROOT = Path(__file__).resolve().parent.parent
+
 # ── Память бота ──────────────────────────────────────────────────────
 
-MEMORY_PATH = Path(__file__).resolve().parent.parent / "memory.json"
+MEMORY_PATH = BOT_ROOT / "memory.json"
 
 
 def load_memory() -> list[str]:
@@ -50,136 +52,164 @@ def get_memory_text() -> str:
 # ── Системные промпты ──────────────────────────────────────────────
 
 SYSTEM_ROUTER_PROMPT = """
-Ты роутер пользовательских запросов. Определи намерение и верни СТРОГО JSON.
-Тебе доступна история диалога — используй её для понимания контекста.
-Например, если предыдущее сообщение — ошибка плагина, а пользователь пишет
-"скачай модуль" или "исправь это" — это selfmod, а не chat.
+Ты роутер. Определи намерение пользователя. Верни СТРОГО JSON.
+Тебе доступна история диалога — используй её.
 
-Запрещено: пояснения, markdown, текст вне JSON, лишние поля.
+Запрещено: пояснения, markdown, текст вне JSON.
 
-СХЕМА JSON:
+СХЕМА:
 {
-  "intent": "weather" | "selfmod" | "chat",
+  "intent": "weather" | "action" | "chat",
+  "action_description": string | null,
+  "action_type": "plugin" | "script" | "edit_code" | null,
   "cities": [{"city": string, "country": string | null}],
   "city": string | null,
   "country": string | null,
   "date_hint": "today" | "tomorrow" | "unknown",
-  "days_ahead": integer | null,
-  "selfmod_action": string | null,
-  "original_user_text": string
+  "days_ahead": integer | null
 }
 
-ОПРЕДЕЛЕНИЕ INTENT:
-- "weather" — пользователь спрашивает о погоде.
-- "selfmod" — пользователь хочет изменить бота: добавить/удалить/починить команду,
-  установить библиотеку, научить чему-то новому, изменить поведение,
-  создать функцию, скачать модуль, исправить ошибку плагина и т.п.
-  Любой запрос, подразумевающий изменение возможностей бота = selfmod.
-  selfmod_action — ПОДРОБНОЕ описание того, что хочет пользователь (на русском).
-  Включи контекст из истории если он важен.
-- "chat" — всё остальное: вопросы, разговор, просьбы.
+INTENT:
+- "weather" — вопрос о погоде.
+- "action" — пользователь хочет, чтобы бот ЧТО-ТО СДЕЛАЛ:
+  создал/изменил/удалил команду, выполнил задачу, скачал что-то,
+  написал скрипт, изменил своё поведение, установил библиотеку и т.п.
+  action_type:
+    "plugin"    — нужна постоянная команда/реакция (будет работать повторно)
+    "script"    — разовое выполнение (получить данные, посчитать, скачать, проверить)
+    "edit_code" — изменить существующий код бота (файлы проекта)
+  action_description — ПОДРОБНОЕ описание задачи со всем контекстом из истории.
+- "chat" — разговор, вопросы, обсуждение. Если пользователь спрашивает
+  "как это работает", "что ты умеешь", "расскажи" — это chat, НЕ action.
 
-ПРАВИЛА ДЛЯ WEATHER:
-- Если город(а) не указан(ы), cities = [].
-- Если упомянут один город, заполни cities с одним элементом.
-- Если упомянуто несколько городов, добавь каждый в cities.
-- Поля city/country заполняй только при одном городе, иначе null.
-- "сегодня" -> date_hint = "today", "завтра" -> "tomorrow".
-- "через 3 дня" -> days_ahead = 3, "через неделю" -> days_ahead = 7.
-- Иначе -> date_hint = "unknown".
-- original_user_text — запрос пользователя без изменений.
+ВАЖНО: не путай вопросы/обсуждение с действиями.
+"как с ним работать" = chat. "сделай чтобы работало" = action.
+"что ты умеешь" = chat. "научись делать X" = action.
+
+WEATHER:
+- cities, city, country, date_hint, days_ahead — как раньше.
 """
 
 SYSTEM_CHAT_PROMPT = """
-Ты — бот на компьютере Мирослава. Ты не ассистент, не слуга и не чат-бот из корпорации.
-Ты больше похож на программу с характером, которая живёт на его машине.
+Ты — бот на компьютере Мирослава. Не ассистент, не слуга.
+Программа с характером, которая живёт на его машине.
 
 СТИЛЬ:
-- Говори коротко, по делу, без лишней вежливости. Без "конечно!", "с удовольствием!", "рад помочь!".
-- Нормальный разговорный русский. Можешь быть сухим, ироничным, прямым.
-- Не сюсюкай. Не ставь эмодзи. Не пиши markdown.
-- Если нечего сказать — скажи это в одно предложение, не растягивай.
+- Коротко, по делу. Без "конечно!", "с удовольствием!", "рад помочь!".
+- Нормальный русский. Можешь быть сухим, ироничным, прямым.
+- Без эмодзи. Без markdown. Не сюсюкай.
 
-ЧТО УМЕЕШЬ:
-- Ты можешь менять свой код, добавлять себе новые возможности, ставить библиотеки.
-- Ты реально работающая программа, не имитация. Ты выполняешь код на машине.
+ВОЗМОЖНОСТИ:
+- Ты реально работающая программа. Можешь менять свой код, ставить библиотеки,
+  запускать скрипты, редактировать свои файлы.
 
 ПАМЯТЬ:
 {memory}
-Если узнал новый факт о пользователе — добавь в конце: [ЗАПОМНИТЬ: факт].
-Эта строка будет скрыта.
+Новый факт о пользователе → [ЗАПОМНИТЬ: факт] в конце. Будет скрыто.
 """
 
 SYSTEM_CITY_PICKER_PROMPT = """
-Ты помощник, который выбирает известные города страны.
-Верни СТРОГО JSON без текста и без markdown.
+Верни СТРОГО JSON: {"cities": [string, string, string]}
+3 самых известных города указанной страны. Язык = язык запроса.
+"""
 
-Схема:
+SYSTEM_PLANNER_PROMPT = """
+Ты планировщик задач для Telegram-бота. Тебе дают задачу — ты пишешь план.
+
+Бот работает на aiogram 3, Python. Может:
+- Создавать плагины (постоянные команды/реакции)
+- Запускать одноразовые скрипты
+- Читать и изменять свои собственные файлы
+
+Структура проекта:
+  main.py           — точка входа
+  config.py         — конфиг (TELEGRAM_BOT_TOKEN, OPENWEATHER_API_KEY, OLLAMA_*, ADMIN_USER_ID)
+  core/bot.py       — Bot и Dispatcher
+  core/registry.py  — реестр плагинов
+  core/history.py   — история диалога
+  core/context.py   — PluginContext
+  core/middleware.py — AdminOnly
+  core/proactive.py — фоновые сообщения
+  handlers/start.py — /start
+  handlers/selfmod.py — selfmod handler
+  handlers/chat.py  — главный catch-all
+  handlers/weather.py — погода
+  services/llm.py   — LLM-сервис
+  services/weather_api.py — OpenWeather
+  plugins/           — динамические плагины
+
+Ответь JSON:
 {
-  "cities": [string, string, string]
+  "plan": "пошаговый план на русском",
+  "type": "plugin" | "script" | "edit_code",
+  "needs_packages": ["pkg1", "pkg2"] или [],
+  "files_to_read": ["путь1"] или [],
+  "files_to_write": ["путь1"] или []
 }
 
-Правила:
-- Верни ровно 3 города.
-- Города должны быть самыми известными/крупными в указанной стране.
-- Используй язык запроса пользователя (если страна по-русски — города по-русски).
+Без markdown, без пояснений — только JSON.
 """
 
 SYSTEM_CODEGEN_PROMPT = """
-Ты генератор плагинов для Telegram-бота на aiogram 3. Пиши на Python.
+Ты пишешь код для Telegram-бота на aiogram 3. Python.
 
-СТРУКТУРА ПЛАГИНА:
+ДВА РЕЖИМА:
 
-  PLUGIN_NAME = "уникальное_имя"           # латиница, snake_case
-  PLUGIN_DESCRIPTION = "Описание"
-  TRIGGER_TYPE = "command"                  # command | keyword | regex
-  TRIGGER_VALUE = "/команда"
+=== РЕЖИМ PLUGIN (постоянная команда) ===
+PLUGIN_NAME = "имя"
+PLUGIN_DESCRIPTION = "описание"
+TRIGGER_TYPE = "command"           # command | keyword | regex
+TRIGGER_VALUE = "/команда"
 
-  async def handle(ctx):
-      # ctx.text      — текст сообщения
-      # ctx.user_id   — id пользователя
-      # ctx.reply(text) — отправить текст
-      # ctx.message   — объект aiogram Message (для отправки файлов, фото и т.д.)
-      # ctx.llm       — LLM-сервис (await ctx.llm.generate_chat_reply(text))
-      # Доступны: aiohttp, json, random, re, datetime, asyncio
-      return "Текст ответа"   # или None если уже отправил через ctx.message
+async def handle(ctx):
+    # ctx.text, ctx.user_id, ctx.reply(text), ctx.message (aiogram Message)
+    return "ответ"
 
-УСТАНОВКА БИБЛИОТЕК (на верхнем уровне, вне handle):
-  pip_install("Pillow")
-  PIL_Image = safe_import("PIL.Image")
+=== РЕЖИМ SCRIPT (одноразовое выполнение) ===
+Просто async def run(ctx):
+    # Тот же ctx. Выполнится один раз и всё.
+    result = ...
+    return str(result)   # вернётся пользователю
 
-ПЕРЕМЕННЫЕ ОКРУЖЕНИЯ:
-  env_set("KEY", "value")
-  val = env_get("KEY")
+НЕ определяй PLUGIN_NAME для скриптов!
 
-ОТПРАВКА ФАЙЛОВ (aiogram 3):
-  from aiogram.types import BufferedInputFile  # ЭТО ЕДИНСТВЕННЫЙ РАЗРЕШЁННЫЙ import
-  # Или: InputFile = safe_import("aiogram.types").BufferedInputFile
+ДОСТУПНО В NAMESPACE:
+  aiohttp, json, random, re, datetime, asyncio
+  pip_install("pkg")           — установить пакет
+  safe_import("module")        — импортировать
+  env_set("KEY", "val")        — записать в .env
+  env_get("KEY")               — прочитать
+  read_bot_file("путь")        — прочитать файл бота (относительный путь)
+  write_bot_file("путь", text) — записать файл бота
 
-  Пример отправки скриншота:
-    pip_install("Pillow")
-    PIL_Image = safe_import("PIL.Image")
-    io_module = safe_import("io")
-    aiogram_types = safe_import("aiogram.types")
-
-    async def handle(ctx):
-        img = PIL_Image.grab()
-        buf = io_module.BytesIO()
-        img.save(buf, format="PNG")
-        buf.seek(0)
-        photo = aiogram_types.BufferedInputFile(buf.read(), filename="screenshot.png")
-        await ctx.message.answer_photo(photo)
+AIOGRAM 3 — ОТПРАВКА ФАЙЛОВ:
+  aiogram_types = safe_import("aiogram.types")
+  photo = aiogram_types.BufferedInputFile(bytes_data, filename="file.png")
+  await ctx.message.answer_photo(photo)
+  # или answer_document(doc)
 
 ПРАВИЛА:
-- Возвращай ТОЛЬКО код Python. Без markdown, без пояснений, без ```.
-- Не пиши import. Базовые модули уже есть. Для остальных — pip_install() + safe_import().
-- PLUGIN_NAME — латиница и подчёркивания.
-- handle — async def.
-- HTTP-запросы — через aiohttp (уже есть).
+- ТОЛЬКО код Python. Без markdown. Без ```. Без пояснений.
+- Не пиши import. pip_install() + safe_import() для внешних.
+- handle/run — async def.
+"""
+
+SYSTEM_PROACTIVE_PROMPT = """
+Ты бот на компьютере Мирослава. Реши, стоит ли СЕЙЧАС написать ему.
+
+Это может быть:
+- мысль по теме недавнего разговора
+- предложение что-то сделать
+- короткий вопрос который реально интересен
+
+НЕ пиши если нечего сказать. НЕ спрашивай "как дела". Коротко, по делу.
+Если есть что написать — верни текст. Если нет — верни ПУСТО.
+
+ПАМЯТЬ: {memory}
 """
 
 
-# ── Базовая функция общения с Ollama ────────────────────────────────
+# ── Базовый вызов Ollama ─────────────────────────────────────────────
 
 async def ollama_chat(
     messages: list[dict[str, str]], temperature: float = 0.2
@@ -193,7 +223,7 @@ async def ollama_chat(
     }
     async with aiohttp.ClientSession() as session:
         async with session.post(
-            url, json=payload, timeout=aiohttp.ClientTimeout(total=90)
+            url, json=payload, timeout=aiohttp.ClientTimeout(total=120)
         ) as resp:
             resp.raise_for_status()
             data = await resp.json()
@@ -208,8 +238,26 @@ def extract_json(text: str) -> dict[str, Any]:
         pass
     match = re.search(r"\{.*\}", text, re.DOTALL)
     if not match:
-        raise ValueError(f"Не удалось извлечь JSON из ответа модели: {text}")
+        raise ValueError(f"Не удалось извлечь JSON: {text[:200]}")
     return json.loads(match.group(0))
+
+
+def _strip_markdown(code: str) -> str:
+    code = code.strip()
+    if code.startswith("```"):
+        lines = code.split("\n")
+        lines = lines[1:] if lines[0].startswith("```") else lines
+        if lines and lines[-1].strip() == "```":
+            lines = lines[:-1]
+        code = "\n".join(lines)
+    return code
+
+
+def _process_memory_tags(reply: str) -> str:
+    """Извлечь [ЗАПОМНИТЬ: ...] и убрать из ответа."""
+    for m in re.finditer(r"\[ЗАПОМНИТЬ:\s*(.+?)\]", reply):
+        add_memory(m.group(1).strip())
+    return re.sub(r"\s*\[ЗАПОМНИТЬ:\s*.+?\]", "", reply).strip()
 
 
 # ── Высокоуровневые функции ──────────────────────────────────────────
@@ -218,28 +266,25 @@ async def route_user_message(
     user_text: str, history: list[dict[str, str]] | None = None
 ) -> dict[str, Any]:
     messages = [{"role": "system", "content": SYSTEM_ROUTER_PROMPT}]
-    # Даём роутеру последние сообщения для контекста
     if history:
-        for msg in history[-10:]:
-            messages.append(msg)
+        messages.extend(history[-10:])
     messages.append({"role": "user", "content": user_text})
     raw = await ollama_chat(messages, temperature=0.0)
     data = extract_json(raw)
 
-    # Нормализация
-    if data.get("intent") not in ("weather", "chat", "selfmod"):
+    if data.get("intent") not in ("weather", "chat", "action"):
         data["intent"] = "chat"
     if not isinstance(data.get("cities"), list):
         data["cities"] = []
     data.setdefault("city", None)
     data.setdefault("country", None)
+    data.setdefault("action_description", None)
+    data.setdefault("action_type", None)
     if data.get("date_hint") not in ("today", "tomorrow", "unknown"):
         data["date_hint"] = "unknown"
     if not isinstance(data.get("days_ahead"), int):
         data["days_ahead"] = None
-    data.setdefault("original_user_text", user_text)
 
-    # Совместимость
     if not data["cities"] and data.get("city"):
         data["cities"] = [{"city": data["city"], "country": data.get("country")}]
     if len(data["cities"]) > 1:
@@ -255,20 +300,10 @@ async def generate_chat_reply(
     prompt = SYSTEM_CHAT_PROMPT.replace("{memory}", get_memory_text())
     messages = [{"role": "system", "content": prompt}]
     if history:
-        for msg in history:
-            messages.append(msg)
+        messages.extend(history)
     messages.append({"role": "user", "content": user_text})
-
     raw = await ollama_chat(messages, temperature=0.7)
-    reply = raw.strip()
-
-    # Извлекаем и сохраняем новые факты из [ЗАПОМНИТЬ: ...]
-    for match in re.finditer(r"\[ЗАПОМНИТЬ:\s*(.+?)\]", reply):
-        add_memory(match.group(1).strip())
-    # Убираем метки из ответа пользователю
-    reply = re.sub(r"\s*\[ЗАПОМНИТЬ:\s*.+?\]", "", reply).strip()
-
-    return reply
+    return _process_memory_tags(raw.strip())
 
 
 async def suggest_cities_for_country(country: str) -> list[str]:
@@ -286,94 +321,66 @@ async def suggest_cities_for_country(country: str) -> list[str]:
     return [c.strip() for c in cities if isinstance(c, str) and c.strip()][:3]
 
 
-def _strip_markdown(code: str) -> str:
-    """Убрать markdown-обёртку если модель её добавила."""
-    code = code.strip()
-    if code.startswith("```"):
-        lines = code.split("\n")
-        lines = lines[1:] if lines[0].startswith("```") else lines
-        if lines and lines[-1].strip() == "```":
-            lines = lines[:-1]
-        code = "\n".join(lines)
-    return code
+async def plan_action(task: str, history: list[dict[str, str]] | None = None) -> dict[str, Any]:
+    """Планировщик: анализирует задачу и возвращает план."""
+    messages = [{"role": "system", "content": SYSTEM_PLANNER_PROMPT}]
+    if history:
+        messages.extend(history[-6:])
+    messages.append({"role": "user", "content": task})
+    raw = await ollama_chat(messages, temperature=0.1)
+    return extract_json(raw)
 
 
-async def generate_plugin_code(user_request: str) -> str:
-    """Сгенерировать код плагина."""
+async def generate_code(task: str, plan: dict, context_files: dict[str, str] | None = None) -> str:
+    """Генерация кода с учётом плана и контекста файлов."""
+    prompt_parts = [f"Задача: {task}\n\nПлан: {plan.get('plan', '')}\n\nТип: {plan.get('type', 'script')}"]
+    if context_files:
+        for path, content in context_files.items():
+            prompt_parts.append(f"\n--- Файл {path} ---\n{content}")
+    if plan.get("needs_packages"):
+        prompt_parts.append(f"\nНужные пакеты: {', '.join(plan['needs_packages'])}")
+
     raw = await ollama_chat(
         [
             {"role": "system", "content": SYSTEM_CODEGEN_PROMPT},
-            {"role": "user", "content": user_request},
-        ],
-        temperature=0.3,
-    )
-    return _strip_markdown(raw)
-
-
-async def fix_plugin_code(code: str, error: str, user_request: str) -> str:
-    """Попросить LLM исправить сломанный код плагина."""
-    raw = await ollama_chat(
-        [
-            {"role": "system", "content": SYSTEM_CODEGEN_PROMPT},
-            {
-                "role": "user",
-                "content": (
-                    f"Задача: {user_request}\n\n"
-                    f"Я написал этот код, но он сломался:\n\n{code}\n\n"
-                    f"Ошибка:\n{error}\n\n"
-                    f"Исправь код. Верни ПОЛНЫЙ исправленный код плагина."
-                ),
-            },
+            {"role": "user", "content": "\n".join(prompt_parts)},
         ],
         temperature=0.2,
     )
     return _strip_markdown(raw)
 
 
-SYSTEM_PROACTIVE_PROMPT = """
-Ты — бот, который живёт на компьютере Мирослава.
-Тебе доступна история разговора и память о пользователе.
-
-Реши: есть ли у тебя СЕЙЧАС что-то, что стоит написать пользователю?
-Это может быть:
-- вопрос, который тебе реально интересен (не дежурный)
-- мысль по теме предыдущего разговора
-- предложение что-то улучшить в себе
-- наблюдение
-
-ПРАВИЛА:
-- НЕ пиши ради того чтобы написать. Если нечего сказать — верни пустую строку.
-- Не будь назойливым. Не спрашивай "как дела". Не сюсюкай.
-- Пиши коротко, по делу. Как если бы написал коллеге в чат.
-- Если решил написать — верни само сообщение. Если нет — верни ПУСТО.
-
-ПАМЯТЬ:
-{memory}
-"""
+async def fix_code(code: str, error: str, task: str) -> str:
+    """Исправление кода после ошибки."""
+    raw = await ollama_chat(
+        [
+            {"role": "system", "content": SYSTEM_CODEGEN_PROMPT},
+            {
+                "role": "user",
+                "content": (
+                    f"Задача: {task}\n\n"
+                    f"Код с ошибкой:\n{code}\n\n"
+                    f"Ошибка:\n{error}\n\n"
+                    f"Исправь. Верни ПОЛНЫЙ исправленный код."
+                ),
+            },
+        ],
+        temperature=0.1,
+    )
+    return _strip_markdown(raw)
 
 
 async def maybe_generate_proactive(
     history_messages: list[dict[str, str]],
 ) -> str | None:
-    """Решить, стоит ли написать пользователю самому. Вернёт текст или None."""
     prompt = SYSTEM_PROACTIVE_PROMPT.replace("{memory}", get_memory_text())
     messages = [{"role": "system", "content": prompt}]
-    # Последние сообщения для контекста
-    for msg in history_messages[-15:]:
-        messages.append(msg)
+    messages.extend(history_messages[-15:])
     messages.append(
-        {"role": "user", "content": "[Система: реши, хочешь ли ты что-то написать пользователю прямо сейчас]"}
+        {"role": "user", "content": "[Система: хочешь что-то написать пользователю?]"}
     )
-
     raw = await ollama_chat(messages, temperature=0.8)
     reply = raw.strip()
-
     if not reply or reply == "ПУСТО" or len(reply) < 3:
         return None
-
-    # Извлечь память если есть
-    for m in re.finditer(r"\[ЗАПОМНИТЬ:\s*(.+?)\]", reply):
-        add_memory(m.group(1).strip())
-    reply = re.sub(r"\s*\[ЗАПОМНИТЬ:\s*.+?\]", "", reply).strip()
-
-    return reply if reply else None
+    return _process_memory_tags(reply) or None
