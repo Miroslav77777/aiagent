@@ -1,4 +1,4 @@
-"""Хендлер чата — фоллбэк для обычных сообщений."""
+"""Хендлер чата — catch-all для всех сообщений."""
 
 import logging
 import re
@@ -8,7 +8,7 @@ from aiogram.types import Message
 
 from core.context import PluginContext
 from core.registry import registry
-from handlers.selfmod import is_selfmod_request, handle_selfmod_natural
+from handlers.selfmod import handle_selfmod
 from handlers.weather import handle_weather
 from services.llm import route_user_message, generate_chat_reply
 from services.weather_api import WeatherError
@@ -20,34 +20,26 @@ router = Router()
 
 
 def _build_context(message: Message) -> PluginContext:
-    """Собрать контекст для динамических плагинов."""
     return PluginContext(
         message=message,
-        services={
-            "llm": llm_service,
-        },
+        services={"llm": llm_service},
     )
 
 
 @router.message()
 async def main_handler(message: Message) -> None:
-    """Главный catch-all хендлер: плагины -> selfmod -> погода -> чат."""
+    """Главный catch-all: плагины -> LLM-роутер (selfmod/weather/chat)."""
     user_text = (message.text or "").strip()
     if not user_text:
         await message.answer("Я пока умею работать только с текстовыми сообщениями.")
         return
 
-    # 1. Проверяем динамические плагины
+    # 1. Динамические плагины — проверяем первыми
     ctx = _build_context(message)
     if await registry.try_dispatch(ctx):
         return
 
-    # 2. Проверяем запрос на самомодификацию
-    if await is_selfmod_request(user_text):
-        await handle_selfmod_natural(message)
-        return
-
-    # 3. Роутинг через LLM
+    # 2. LLM-роутер решает что делать
     try:
         route = await route_user_message(user_text)
 
@@ -57,7 +49,14 @@ async def main_handler(message: Message) -> None:
         ):
             route["intent"] = "weather"
 
-        if route["intent"] == "weather":
+        intent = route["intent"]
+
+        if intent == "selfmod":
+            action = route.get("selfmod_action") or user_text
+            await handle_selfmod(message, action)
+            return
+
+        if intent == "weather":
             await handle_weather(message, route)
             return
 

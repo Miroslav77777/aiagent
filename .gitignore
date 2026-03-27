@@ -16,5 +16,8 @@ __pycache__/
 # Dynamic plugins (generated at runtime)
 plugins/*.py
 
+# Bot memory
+memory.json
+
 # OS
 .DS_Store

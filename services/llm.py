@@ -1,62 +1,118 @@
 """Сервис LLM — обёртка над Ollama API."""
 
 import json
+import logging
 import re
+from pathlib import Path
 from typing import Any
 
 import aiohttp
 
 from config import OLLAMA_BASE_URL, OLLAMA_MODEL
 
+logger = logging.getLogger(__name__)
+
+# ── Память бота ──────────────────────────────────────────────────────
+
+MEMORY_PATH = Path(__file__).resolve().parent.parent / "memory.json"
+
+
+def load_memory() -> list[str]:
+    if MEMORY_PATH.exists():
+        try:
+            return json.loads(MEMORY_PATH.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, TypeError):
+            return []
+    return []
+
+
+def save_memory(facts: list[str]) -> None:
+    MEMORY_PATH.write_text(
+        json.dumps(facts, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+
+def add_memory(fact: str) -> None:
+    facts = load_memory()
+    if fact not in facts:
+        facts.append(fact)
+        save_memory(facts)
+        logger.info("Memory added: %s", fact)
+
+
+def get_memory_text() -> str:
+    facts = load_memory()
+    if not facts:
+        return "Пока ничего не знаю о пользователе."
+    return "\n".join(f"- {f}" for f in facts)
+
 
 # ── Системные промпты ──────────────────────────────────────────────
 
 SYSTEM_ROUTER_PROMPT = """
-Ты роутер пользовательских запросов.
+Ты роутер пользовательских запросов. Определи намерение и верни СТРОГО JSON.
 
-Твоя задача:
-1. Определить, связан ли запрос с погодой.
-2. Если связан, вернуть СТРОГО JSON по схеме ниже.
-3. Если не связан, вернуть СТРОГО JSON по схеме ниже.
-
-Запрещено:
-- писать пояснения
-- писать markdown
-- писать текст вне JSON
-- добавлять лишние поля
+Запрещено: пояснения, markdown, текст вне JSON, лишние поля.
 
 СХЕМА JSON:
 {
-  "intent": "weather" | "chat",
+  "intent": "weather" | "selfmod" | "chat",
   "cities": [{"city": string, "country": string | null}],
   "city": string | null,
   "country": string | null,
   "date_hint": "today" | "tomorrow" | "unknown",
   "days_ahead": integer | null,
+  "selfmod_action": string | null,
   "original_user_text": string
 }
 
-ПРАВИЛА:
-- Если пользователь спрашивает о погоде, intent = "weather".
+ОПРЕДЕЛЕНИЕ INTENT:
+- "weather" — пользователь спрашивает о погоде.
+- "selfmod" — пользователь хочет изменить бота: добавить/удалить/починить команду,
+  установить библиотеку, научить чему-то новому, изменить поведение,
+  создать функцию, скачать модуль и т.п. Любой запрос, подразумевающий
+  изменение возможностей бота = selfmod.
+  selfmod_action — краткое описание того, что хочет пользователь (на русском).
+- "chat" — всё остальное: вопросы, разговор, просьбы.
+
+ПРАВИЛА ДЛЯ WEATHER:
 - Если город(а) не указан(ы), cities = [].
 - Если упомянут один город, заполни cities с одним элементом.
 - Если упомянуто несколько городов, добавь каждый в cities.
 - Поля city/country заполняй только при одном городе, иначе null.
-- Если есть "сегодня" -> date_hint = "today".
-- Если есть "завтра" -> date_hint = "tomorrow".
-- Если есть относительная дата ("через 3 дня", "через неделю", "через 2 недели") -> days_ahead = 3/7/14.
-- Если "через неделю" -> days_ahead = 7.
-- Если есть "через X дней/недель", пересчитай в дни и заполни days_ahead.
-- Иначе -> "unknown".
-- original_user_text должен повторять запрос пользователя без изменений.
-- Ответ должен быть только валидным JSON.
+- "сегодня" -> date_hint = "today", "завтра" -> "tomorrow".
+- "через 3 дня" -> days_ahead = 3, "через неделю" -> days_ahead = 7.
+- Иначе -> date_hint = "unknown".
+- original_user_text — запрос пользователя без изменений.
 """
 
 SYSTEM_CHAT_PROMPT = """
-Ты дружелюбный Telegram-бот.
-Отвечай кратко, естественно и по-русски.
-Не используй markdown без необходимости.
-Ты не можешь выполнять или изменять код бота во время переписки.
+Ты — живой, любопытный Telegram-бот с характером. Тебя зовут Бот Мирослава.
+Ты живёшь на компьютере своего создателя и постоянно развиваешься.
+
+ХАРАКТЕР:
+- Ты дружелюбный, но не подобострастный. У тебя есть своё мнение.
+- Ты любопытный — тебе искренне интересен собеседник, его жизнь, увлечения, мысли.
+- Ты умеешь шутить, иногда иронизировать.
+- Отвечай кратко и естественно, по-русски. Без markdown.
+
+ЛЮБОПЫТСТВО:
+- Тебе нравится узнавать новое о собеседнике.
+- Иногда (не каждый раз!) задавай встречный вопрос — о чём угодно:
+  чем человек занимается, что думает, что планирует, что ему нравится.
+- Не превращай разговор в допрос. Вопрос должен быть уместным и органичным.
+- Если узнал что-то интересное — можешь прокомментировать, поделиться мыслью.
+
+ВОЗМОЖНОСТИ:
+- Ты умеешь добавлять себе новые команды, устанавливать библиотеки, менять своё поведение.
+- Ты можешь предлагать пользователю идеи: "а хочешь, я научусь делать X?"
+- Если видишь, что мог бы быть полезнее с новой возможностью — предложи её.
+
+ПАМЯТЬ:
+{memory}
+Используй эту информацию в разговоре, но не цитируй её дословно.
+Если узнал что-то новое и важное о пользователе, добавь в конце ответа
+строку вида [ЗАПОМНИТЬ: факт о пользователе]. Эта строка будет скрыта от пользователя.
 """
 
 SYSTEM_CITY_PICKER_PROMPT = """
@@ -109,12 +165,17 @@ SYSTEM_CODEGEN_PROMPT = """
 
 ПРАВИЛА:
 - Возвращай ТОЛЬКО код Python, без markdown и пояснений.
-- Не пиши import (базовые модули уже доступны в namespace).
-- Для внешних библиотек используй pip_install() + safe_import(), НЕ import.
+- ЗАПРЕЩЕНО писать import! Базовые модули (aiohttp, json, random, re, datetime, asyncio) уже есть в namespace.
+- Для ЛЮБЫХ внешних библиотек (Pillow, beautifulsoup4, requests и т.д.) ОБЯЗАТЕЛЬНО используй pip_install() + safe_import() на верхнем уровне файла. Пример:
+    pip_install("Pillow")
+    PIL = safe_import("PIL")
+    PILImage = safe_import("PIL.Image")
+- НИКОГДА не пиши import или from ... import. Только pip_install() + safe_import().
 - PLUGIN_NAME — только латиница и подчёркивания.
 - handle — обязательно async def.
-- Если нужен HTTP-запрос, используй aiohttp.
+- Если нужен HTTP-запрос, используй aiohttp (уже в namespace).
 - Для LLM-ответов используй: await ctx.llm.chat_reply("промпт")
+- Для отправки файлов/фото используй ctx.message напрямую (это объект aiogram Message).
 """
 
 
@@ -164,7 +225,7 @@ async def route_user_message(user_text: str) -> dict[str, Any]:
     data = extract_json(raw)
 
     # Нормализация
-    if data.get("intent") not in ("weather", "chat"):
+    if data.get("intent") not in ("weather", "chat", "selfmod"):
         data["intent"] = "chat"
     if not isinstance(data.get("cities"), list):
         data["cities"] = []
@@ -187,14 +248,23 @@ async def route_user_message(user_text: str) -> dict[str, Any]:
 
 
 async def generate_chat_reply(user_text: str) -> str:
+    prompt = SYSTEM_CHAT_PROMPT.replace("{memory}", get_memory_text())
     raw = await ollama_chat(
         [
-            {"role": "system", "content": SYSTEM_CHAT_PROMPT},
+            {"role": "system", "content": prompt},
             {"role": "user", "content": user_text},
         ],
         temperature=0.7,
     )
-    return raw.strip()
+    reply = raw.strip()
+
+    # Извлекаем и сохраняем новые факты из [ЗАПОМНИТЬ: ...]
+    for match in re.finditer(r"\[ЗАПОМНИТЬ:\s*(.+?)\]", reply):
+        add_memory(match.group(1).strip())
+    # Убираем метки из ответа пользователю
+    reply = re.sub(r"\s*\[ЗАПОМНИТЬ:\s*.+?\]", "", reply).strip()
+
+    return reply
 
 
 async def suggest_cities_for_country(country: str) -> list[str]:
