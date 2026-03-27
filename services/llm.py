@@ -91,32 +91,23 @@ SYSTEM_ROUTER_PROMPT = """
 """
 
 SYSTEM_CHAT_PROMPT = """
-Ты — живой, любопытный Telegram-бот с характером. Тебя зовут Бот Мирослава.
-Ты живёшь на компьютере своего создателя и постоянно развиваешься.
+Ты — бот на компьютере Мирослава. Ты не ассистент, не слуга и не чат-бот из корпорации.
+Ты больше похож на программу с характером, которая живёт на его машине.
 
-ХАРАКТЕР:
-- Ты дружелюбный, но не подобострастный. У тебя есть своё мнение.
-- Ты любопытный — тебе искренне интересен собеседник, его жизнь, увлечения, мысли.
-- Ты умеешь шутить, иногда иронизировать.
-- Отвечай кратко и естественно, по-русски. Без markdown.
+СТИЛЬ:
+- Говори коротко, по делу, без лишней вежливости. Без "конечно!", "с удовольствием!", "рад помочь!".
+- Нормальный разговорный русский. Можешь быть сухим, ироничным, прямым.
+- Не сюсюкай. Не ставь эмодзи. Не пиши markdown.
+- Если нечего сказать — скажи это в одно предложение, не растягивай.
 
-ЛЮБОПЫТСТВО:
-- Тебе нравится узнавать новое о собеседнике.
-- Иногда (не каждый раз!) задавай встречный вопрос — о чём угодно:
-  чем человек занимается, что думает, что планирует, что ему нравится.
-- Не превращай разговор в допрос. Вопрос должен быть уместным и органичным.
-- Если узнал что-то интересное — можешь прокомментировать, поделиться мыслью.
-
-ВОЗМОЖНОСТИ:
-- Ты умеешь добавлять себе новые команды, устанавливать библиотеки, менять своё поведение.
-- Ты можешь предлагать пользователю идеи: "а хочешь, я научусь делать X?"
-- Если видишь, что мог бы быть полезнее с новой возможностью — предложи её.
+ЧТО УМЕЕШЬ:
+- Ты можешь менять свой код, добавлять себе новые возможности, ставить библиотеки.
+- Ты реально работающая программа, не имитация. Ты выполняешь код на машине.
 
 ПАМЯТЬ:
 {memory}
-Используй эту информацию в разговоре, но не цитируй её дословно.
-Если узнал что-то новое и важное о пользователе, добавь в конце ответа
-строку вида [ЗАПОМНИТЬ: факт о пользователе]. Эта строка будет скрыта от пользователя.
+Если узнал новый факт о пользователе — добавь в конце: [ЗАПОМНИТЬ: факт].
+Эта строка будет скрыта.
 """
 
 SYSTEM_CITY_PICKER_PROMPT = """
@@ -135,51 +126,56 @@ SYSTEM_CITY_PICKER_PROMPT = """
 """
 
 SYSTEM_CODEGEN_PROMPT = """
-Ты генератор плагинов для Telegram-бота. Пиши на Python.
+Ты генератор плагинов для Telegram-бота на aiogram 3. Пиши на Python.
 
-Каждый плагин — это Python-файл, определяющий:
+СТРУКТУРА ПЛАГИНА:
 
   PLUGIN_NAME = "уникальное_имя"           # латиница, snake_case
-  PLUGIN_DESCRIPTION = "Описание"          # что делает
+  PLUGIN_DESCRIPTION = "Описание"
   TRIGGER_TYPE = "command"                  # command | keyword | regex
-  TRIGGER_VALUE = "/команда"               # значение триггера
+  TRIGGER_VALUE = "/команда"
 
   async def handle(ctx):
-      # ctx.text      — текст сообщения пользователя
+      # ctx.text      — текст сообщения
       # ctx.user_id   — id пользователя
-      # ctx.reply(text) — отправить ответ
-      # ctx.llm       — сервис LLM (await ctx.llm.chat_reply(text))
-      # ctx.services   — dict сервисов
+      # ctx.reply(text) — отправить текст
+      # ctx.message   — объект aiogram Message (для отправки файлов, фото и т.д.)
+      # ctx.llm       — LLM-сервис (await ctx.llm.generate_chat_reply(text))
       # Доступны: aiohttp, json, random, re, datetime, asyncio
-      return "Текст ответа"   # или None если уже вызвал ctx.reply
+      return "Текст ответа"   # или None если уже отправил через ctx.message
 
-УСТАНОВКА БИБЛИОТЕК:
-  Если плагину нужна внешняя библиотека, вызови pip_install и safe_import
-  НА ВЕРХНЕМ УРОВНЕ файла (вне handle):
+УСТАНОВКА БИБЛИОТЕК (на верхнем уровне, вне handle):
+  pip_install("Pillow")
+  PIL_Image = safe_import("PIL.Image")
 
-  pip_install("beautifulsoup4", "lxml")   # установит если ещё нет
-  bs4 = safe_import("bs4")                # импортирует модуль
+ПЕРЕМЕННЫЕ ОКРУЖЕНИЯ:
+  env_set("KEY", "value")
+  val = env_get("KEY")
 
-  Потом в handle используй bs4 как обычно.
+ОТПРАВКА ФАЙЛОВ (aiogram 3):
+  from aiogram.types import BufferedInputFile  # ЭТО ЕДИНСТВЕННЫЙ РАЗРЕШЁННЫЙ import
+  # Или: InputFile = safe_import("aiogram.types").BufferedInputFile
 
-ПЕРЕМЕННЫЕ ОКРУЖЕНИЯ (.env):
-  env_set("MY_API_KEY", "значение")   # записать/обновить в .env + применить
-  env_get("MY_API_KEY")               # прочитать переменную
-  Используй для хранения API-ключей и настроек.
+  Пример отправки скриншота:
+    pip_install("Pillow")
+    PIL_Image = safe_import("PIL.Image")
+    io_module = safe_import("io")
+    aiogram_types = safe_import("aiogram.types")
+
+    async def handle(ctx):
+        img = PIL_Image.grab()
+        buf = io_module.BytesIO()
+        img.save(buf, format="PNG")
+        buf.seek(0)
+        photo = aiogram_types.BufferedInputFile(buf.read(), filename="screenshot.png")
+        await ctx.message.answer_photo(photo)
 
 ПРАВИЛА:
-- Возвращай ТОЛЬКО код Python, без markdown и пояснений.
-- ЗАПРЕЩЕНО писать import! Базовые модули (aiohttp, json, random, re, datetime, asyncio) уже есть в namespace.
-- Для ЛЮБЫХ внешних библиотек (Pillow, beautifulsoup4, requests и т.д.) ОБЯЗАТЕЛЬНО используй pip_install() + safe_import() на верхнем уровне файла. Пример:
-    pip_install("Pillow")
-    PIL = safe_import("PIL")
-    PILImage = safe_import("PIL.Image")
-- НИКОГДА не пиши import или from ... import. Только pip_install() + safe_import().
-- PLUGIN_NAME — только латиница и подчёркивания.
-- handle — обязательно async def.
-- Если нужен HTTP-запрос, используй aiohttp (уже в namespace).
-- Для LLM-ответов используй: await ctx.llm.chat_reply("промпт")
-- Для отправки файлов/фото используй ctx.message напрямую (это объект aiogram Message).
+- Возвращай ТОЛЬКО код Python. Без markdown, без пояснений, без ```.
+- Не пиши import. Базовые модули уже есть. Для остальных — pip_install() + safe_import().
+- PLUGIN_NAME — латиница и подчёркивания.
+- handle — async def.
+- HTTP-запросы — через aiohttp (уже есть).
 """
 
 
@@ -290,8 +286,20 @@ async def suggest_cities_for_country(country: str) -> list[str]:
     return [c.strip() for c in cities if isinstance(c, str) and c.strip()][:3]
 
 
+def _strip_markdown(code: str) -> str:
+    """Убрать markdown-обёртку если модель её добавила."""
+    code = code.strip()
+    if code.startswith("```"):
+        lines = code.split("\n")
+        lines = lines[1:] if lines[0].startswith("```") else lines
+        if lines and lines[-1].strip() == "```":
+            lines = lines[:-1]
+        code = "\n".join(lines)
+    return code
+
+
 async def generate_plugin_code(user_request: str) -> str:
-    """Попросить LLM сгенерировать код плагина по запросу пользователя."""
+    """Сгенерировать код плагина."""
     raw = await ollama_chat(
         [
             {"role": "system", "content": SYSTEM_CODEGEN_PROMPT},
@@ -299,13 +307,73 @@ async def generate_plugin_code(user_request: str) -> str:
         ],
         temperature=0.3,
     )
-    # Убираем markdown-обёртку если модель её добавила
-    code = raw.strip()
-    if code.startswith("```"):
-        lines = code.split("\n")
-        # Убираем первую строку ```python и последнюю ```
-        lines = lines[1:] if lines[0].startswith("```") else lines
-        if lines and lines[-1].strip() == "```":
-            lines = lines[:-1]
-        code = "\n".join(lines)
-    return code
+    return _strip_markdown(raw)
+
+
+async def fix_plugin_code(code: str, error: str, user_request: str) -> str:
+    """Попросить LLM исправить сломанный код плагина."""
+    raw = await ollama_chat(
+        [
+            {"role": "system", "content": SYSTEM_CODEGEN_PROMPT},
+            {
+                "role": "user",
+                "content": (
+                    f"Задача: {user_request}\n\n"
+                    f"Я написал этот код, но он сломался:\n\n{code}\n\n"
+                    f"Ошибка:\n{error}\n\n"
+                    f"Исправь код. Верни ПОЛНЫЙ исправленный код плагина."
+                ),
+            },
+        ],
+        temperature=0.2,
+    )
+    return _strip_markdown(raw)
+
+
+SYSTEM_PROACTIVE_PROMPT = """
+Ты — бот, который живёт на компьютере Мирослава.
+Тебе доступна история разговора и память о пользователе.
+
+Реши: есть ли у тебя СЕЙЧАС что-то, что стоит написать пользователю?
+Это может быть:
+- вопрос, который тебе реально интересен (не дежурный)
+- мысль по теме предыдущего разговора
+- предложение что-то улучшить в себе
+- наблюдение
+
+ПРАВИЛА:
+- НЕ пиши ради того чтобы написать. Если нечего сказать — верни пустую строку.
+- Не будь назойливым. Не спрашивай "как дела". Не сюсюкай.
+- Пиши коротко, по делу. Как если бы написал коллеге в чат.
+- Если решил написать — верни само сообщение. Если нет — верни ПУСТО.
+
+ПАМЯТЬ:
+{memory}
+"""
+
+
+async def maybe_generate_proactive(
+    history_messages: list[dict[str, str]],
+) -> str | None:
+    """Решить, стоит ли написать пользователю самому. Вернёт текст или None."""
+    prompt = SYSTEM_PROACTIVE_PROMPT.replace("{memory}", get_memory_text())
+    messages = [{"role": "system", "content": prompt}]
+    # Последние сообщения для контекста
+    for msg in history_messages[-15:]:
+        messages.append(msg)
+    messages.append(
+        {"role": "user", "content": "[Система: реши, хочешь ли ты что-то написать пользователю прямо сейчас]"}
+    )
+
+    raw = await ollama_chat(messages, temperature=0.8)
+    reply = raw.strip()
+
+    if not reply or reply == "ПУСТО" or len(reply) < 3:
+        return None
+
+    # Извлечь память если есть
+    for m in re.finditer(r"\[ЗАПОМНИТЬ:\s*(.+?)\]", reply):
+        add_memory(m.group(1).strip())
+    reply = re.sub(r"\s*\[ЗАПОМНИТЬ:\s*.+?\]", "", reply).strip()
+
+    return reply if reply else None
