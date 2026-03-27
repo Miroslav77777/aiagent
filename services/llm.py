@@ -51,6 +51,9 @@ def get_memory_text() -> str:
 
 SYSTEM_ROUTER_PROMPT = """
 Ты роутер пользовательских запросов. Определи намерение и верни СТРОГО JSON.
+Тебе доступна история диалога — используй её для понимания контекста.
+Например, если предыдущее сообщение — ошибка плагина, а пользователь пишет
+"скачай модуль" или "исправь это" — это selfmod, а не chat.
 
 Запрещено: пояснения, markdown, текст вне JSON, лишние поля.
 
@@ -70,9 +73,10 @@ SYSTEM_ROUTER_PROMPT = """
 - "weather" — пользователь спрашивает о погоде.
 - "selfmod" — пользователь хочет изменить бота: добавить/удалить/починить команду,
   установить библиотеку, научить чему-то новому, изменить поведение,
-  создать функцию, скачать модуль и т.п. Любой запрос, подразумевающий
-  изменение возможностей бота = selfmod.
-  selfmod_action — краткое описание того, что хочет пользователь (на русском).
+  создать функцию, скачать модуль, исправить ошибку плагина и т.п.
+  Любой запрос, подразумевающий изменение возможностей бота = selfmod.
+  selfmod_action — ПОДРОБНОЕ описание того, что хочет пользователь (на русском).
+  Включи контекст из истории если он важен.
 - "chat" — всё остальное: вопросы, разговор, просьбы.
 
 ПРАВИЛА ДЛЯ WEATHER:
@@ -214,14 +218,16 @@ def extract_json(text: str) -> dict[str, Any]:
 
 # ── Высокоуровневые функции ──────────────────────────────────────────
 
-async def route_user_message(user_text: str) -> dict[str, Any]:
-    raw = await ollama_chat(
-        [
-            {"role": "system", "content": SYSTEM_ROUTER_PROMPT},
-            {"role": "user", "content": user_text},
-        ],
-        temperature=0.0,
-    )
+async def route_user_message(
+    user_text: str, history: list[dict[str, str]] | None = None
+) -> dict[str, Any]:
+    messages = [{"role": "system", "content": SYSTEM_ROUTER_PROMPT}]
+    # Даём роутеру последние сообщения для контекста
+    if history:
+        for msg in history[-10:]:
+            messages.append(msg)
+    messages.append({"role": "user", "content": user_text})
+    raw = await ollama_chat(messages, temperature=0.0)
     data = extract_json(raw)
 
     # Нормализация
@@ -247,15 +253,17 @@ async def route_user_message(user_text: str) -> dict[str, Any]:
     return data
 
 
-async def generate_chat_reply(user_text: str) -> str:
+async def generate_chat_reply(
+    user_text: str, history: list[dict[str, str]] | None = None
+) -> str:
     prompt = SYSTEM_CHAT_PROMPT.replace("{memory}", get_memory_text())
-    raw = await ollama_chat(
-        [
-            {"role": "system", "content": prompt},
-            {"role": "user", "content": user_text},
-        ],
-        temperature=0.7,
-    )
+    messages = [{"role": "system", "content": prompt}]
+    if history:
+        for msg in history:
+            messages.append(msg)
+    messages.append({"role": "user", "content": user_text})
+
+    raw = await ollama_chat(messages, temperature=0.7)
     reply = raw.strip()
 
     # Извлекаем и сохраняем новые факты из [ЗАПОМНИТЬ: ...]

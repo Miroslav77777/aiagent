@@ -1,4 +1,4 @@
-"""Хендлер чата — catch-all для всех сообщений."""
+"""Хендлер чата — единая точка входа для всех текстовых сообщений."""
 
 import logging
 import re
@@ -7,6 +7,7 @@ from aiogram import Router
 from aiogram.types import Message
 
 from core.context import PluginContext
+from core.history import history
 from core.registry import registry
 from handlers.selfmod import handle_selfmod
 from handlers.weather import handle_weather
@@ -39,9 +40,12 @@ async def main_handler(message: Message) -> None:
     if await registry.try_dispatch(ctx):
         return
 
-    # 2. LLM-роутер решает что делать
+    # Записываем сообщение пользователя в историю
+    history.add_user(user_text)
+
+    # 2. LLM-роутер решает что делать (с контекстом истории)
     try:
-        route = await route_user_message(user_text)
+        route = await route_user_message(user_text, history.get_messages())
 
         # Фоллбэк: слово «погода» в тексте
         if route.get("intent") == "chat" and re.search(
@@ -58,14 +62,20 @@ async def main_handler(message: Message) -> None:
 
         if intent == "weather":
             await handle_weather(message, route)
+            # Записываем факт получения погоды в историю
+            history.add_assistant("[Отправил информацию о погоде]")
             return
 
-        # Обычный чат
-        reply = await generate_chat_reply(user_text)
+        # Обычный чат — с полной историей
+        reply = await generate_chat_reply(user_text, history.get_messages())
         await message.answer(reply)
+        history.add_assistant(reply)
 
     except WeatherError as e:
-        await message.answer(f"Не получилось получить погоду: {e}")
+        error_msg = f"Не получилось получить погоду: {e}"
+        await message.answer(error_msg)
+        history.add_assistant(error_msg)
     except Exception:
         logger.exception("Ошибка в main_handler")
         await message.answer("Произошла ошибка при обработке запроса.")
+        history.add_assistant("[Произошла внутренняя ошибка]")
