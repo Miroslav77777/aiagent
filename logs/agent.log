@@ -1,0 +1,1156 @@
+2026-05-18 01:40:56,651 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 01:40:56,666 - db_manager - INFO - Connection pool created successfully
+2026-05-18 01:40:56,667 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 01:40:56,667 - fetcher_agent - INFO - Fetcher agent starting...
+2026-05-18 01:40:56,668 - fetcher_agent - INFO - Fetching arXiv for term: water dissociation membrane
+2026-05-18 01:41:01,064 - fetcher_agent - ERROR - Network error fetching from arXiv: HTTPConnectionPool(host='export.arxiv.org', port=80): Max retries exceeded with url: /api/query?search_query=all%3A%22water+dissociation+membrane%22&start=0&max_results=10 (Caused by NameResolutionError("HTTPConnection(host='export.arxiv.org', port=80): Failed to resolve 'export.arxiv.org' ([Errno -5] No address associated with hostname)"))
+2026-05-18 01:41:01,066 - fetcher_agent - INFO - Fetching arXiv for term: water splitting electrodialysis
+2026-05-18 01:41:05,070 - fetcher_agent - ERROR - Network error fetching from arXiv: HTTPConnectionPool(host='export.arxiv.org', port=80): Max retries exceeded with url: /api/query?search_query=all%3A%22water+splitting+electrodialysis%22&start=0&max_results=10 (Caused by NameResolutionError("HTTPConnection(host='export.arxiv.org', port=80): Failed to resolve 'export.arxiv.org' ([Errno -5] No address associated with hostname)"))
+2026-05-18 01:41:05,070 - fetcher_agent - INFO - Fetching arXiv for term: overlimiting current
+2026-05-18 01:41:19,401 - fetcher_agent - ERROR - Network error fetching from arXiv: HTTPSConnectionPool(host='export.arxiv.org', port=443): Read timed out. (read timeout=10)
+2026-05-18 01:41:19,401 - fetcher_agent - INFO - Fetching arXiv for term: second Wien effect
+2026-05-18 01:41:20,038 - fetcher_agent - ERROR - Network error fetching from arXiv: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3A%22second+Wien+effect%22&start=0&max_results=10
+2026-05-18 01:41:20,040 - fetcher_agent - INFO - Scopus fetcher mocked out. Ready for scraper.
+2026-05-18 01:41:20,040 - fetcher_agent - INFO - WoS fetcher mocked out. Ready for scraper.
+2026-05-18 01:41:20,041 - fetcher_agent - INFO - eLibrary fetcher mocked out. Ready for scraper.
+2026-05-18 01:41:20,041 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 01:41:20,041 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 01:41:20,051 - filter_agent - INFO - Filter agent starting...
+2026-05-18 01:41:20,056 - filter_agent - INFO - No new articles to filter.
+2026-05-18 01:41:20,056 - __main__ - INFO - --- PHASE 3: ANALYZING ---
+2026-05-18 01:41:20,069 - analyst_agent - INFO - Analyst agent starting...
+2026-05-18 01:41:20,071 - analyst_agent - INFO - No approved articles to analyze.
+2026-05-18 01:41:20,072 - __main__ - INFO - --- PHASE 4: EXPORTING ---
+2026-05-18 01:41:20,072 - exporter - INFO - Exporter starting...
+2026-05-18 01:41:20,077 - exporter - INFO - Exported 0 articles to /app/downloads/analyzed_articles.json
+2026-05-18 01:41:20,078 - exporter - INFO - Exporter finished.
+2026-05-18 01:41:20,078 - __main__ - INFO - Multi-Agent System finished its run.
+2026-05-18 01:44:27,716 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 01:44:27,729 - db_manager - INFO - Connection pool created successfully
+2026-05-18 01:44:27,729 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 01:44:27,730 - fetcher_agent - INFO - Fetcher agent starting...
+2026-05-18 01:44:27,730 - fetcher_agent - INFO - Fetching arXiv for term: water dissociation membrane
+2026-05-18 01:44:43,965 - fetcher_agent - ERROR - Network error fetching from arXiv: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3A%22water+dissociation+membrane%22&start=0&max_results=10
+2026-05-18 01:44:43,965 - fetcher_agent - INFO - Fetching arXiv for term: water splitting electrodialysis
+2026-05-18 01:44:44,393 - fetcher_agent - ERROR - Network error fetching from arXiv: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3A%22water+splitting+electrodialysis%22&start=0&max_results=10
+2026-05-18 01:44:44,394 - fetcher_agent - INFO - Fetching arXiv for term: overlimiting current
+2026-05-18 01:44:44,960 - fetcher_agent - ERROR - Network error fetching from arXiv: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3A%22overlimiting+current%22&start=0&max_results=10
+2026-05-18 01:44:44,960 - fetcher_agent - INFO - Fetching arXiv for term: second Wien effect
+2026-05-18 01:44:45,355 - fetcher_agent - ERROR - Network error fetching from arXiv: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3A%22second+Wien+effect%22&start=0&max_results=10
+2026-05-18 01:44:45,357 - fetcher_agent - INFO - Scopus fetcher mocked out. Ready for scraper.
+2026-05-18 01:44:45,357 - fetcher_agent - INFO - WoS fetcher mocked out. Ready for scraper.
+2026-05-18 01:44:45,357 - fetcher_agent - INFO - eLibrary fetcher mocked out. Ready for scraper.
+2026-05-18 01:44:45,358 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 01:44:45,358 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 01:44:45,368 - filter_agent - INFO - Filter agent starting...
+2026-05-18 01:44:45,371 - filter_agent - INFO - No new articles to filter.
+2026-05-18 01:44:45,371 - __main__ - INFO - --- PHASE 3: ANALYZING ---
+2026-05-18 01:44:45,381 - analyst_agent - INFO - Analyst agent starting...
+2026-05-18 01:44:45,383 - analyst_agent - INFO - No approved articles to analyze.
+2026-05-18 01:44:45,383 - __main__ - INFO - --- PHASE 4: EXPORTING ---
+2026-05-18 01:44:45,384 - exporter - INFO - Exporter starting...
+2026-05-18 01:44:45,389 - exporter - INFO - Exported 0 articles to /app/downloads/analyzed_articles.json
+2026-05-18 01:44:45,390 - exporter - INFO - Exporter finished.
+2026-05-18 01:44:45,390 - __main__ - INFO - Multi-Agent System finished its run.
+2026-05-18 01:51:21,896 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 01:51:21,908 - db_manager - INFO - Connection pool created successfully
+2026-05-18 01:51:21,909 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 01:51:21,920 - fetcher_agent - INFO - Fetcher agent (AI Parser Mode) starting...
+2026-05-18 01:51:21,920 - fetcher_agent - INFO - Fetching arXiv HTML for term: water dissociation membrane
+2026-05-18 01:51:42,757 - fetcher_agent - ERROR - Error fetching HTML from arXiv: HTTPSConnectionPool(host='arxiv.org', port=443): Read timed out. (read timeout=20)
+2026-05-18 01:51:42,758 - fetcher_agent - INFO - Fetching arXiv HTML for term: water splitting electrodialysis
+2026-05-18 01:52:02,966 - fetcher_agent - ERROR - Error fetching HTML from arXiv: HTTPSConnectionPool(host='arxiv.org', port=443): Read timed out. (read timeout=20)
+2026-05-18 01:52:02,966 - fetcher_agent - INFO - Fetching arXiv HTML for term: overlimiting current
+2026-05-18 01:52:14,036 - fetcher_agent - ERROR - Error fetching HTML from arXiv: 429 Client Error: Unknown Error for url: https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=overlimiting+current&terms-0-field=all&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=50&order=-announced_date_first
+2026-05-18 01:52:14,036 - fetcher_agent - INFO - Fetching arXiv HTML for term: second Wien effect
+2026-05-18 01:52:14,434 - fetcher_agent - ERROR - Error fetching HTML from arXiv: 429 Client Error: Unknown Error for url: https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=second+Wien+effect&terms-0-field=all&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=50&order=-announced_date_first
+2026-05-18 01:52:14,436 - fetcher_agent - INFO - Fetching Scopus HTML for term: water dissociation membrane
+2026-05-18 01:52:16,929 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 01:52:46,416 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 01:52:46,417 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 01:52:51,421 - fetcher_agent - INFO - Fetching Scopus HTML for term: water splitting electrodialysis
+2026-05-18 01:52:53,538 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 01:52:54,079 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 01:52:54,080 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 01:52:59,084 - fetcher_agent - INFO - Fetching Scopus HTML for term: overlimiting current
+2026-05-18 01:53:01,578 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 01:53:02,096 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 01:53:02,097 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 01:53:07,101 - fetcher_agent - INFO - Fetching Scopus HTML for term: second Wien effect
+2026-05-18 01:53:09,011 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 01:53:09,513 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 01:53:09,513 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 01:53:15,149 - fetcher_agent - INFO - Web of Science uses heavy React rendering and Cloudflare. Standard requests will not return article HTML without a real browser (Selenium). Skipping GET request.
+2026-05-18 01:53:15,149 - fetcher_agent - INFO - Fetching eLibrary HTML. Note: eLibrary requires session IDs for search results to show.
+2026-05-18 01:53:15,464 - fetcher_agent - ERROR - Error fetching HTML from eLibrary: HTTPSConnectionPool(host='elibrary.ru', port=443): Max retries exceeded with url: /query_results.asp (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1017)')))
+2026-05-18 01:53:15,464 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 01:53:15,465 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 01:53:15,474 - filter_agent - INFO - Filter agent starting...
+2026-05-18 01:53:15,477 - filter_agent - INFO - No new articles to filter.
+2026-05-18 01:53:15,477 - __main__ - INFO - --- PHASE 3: ANALYZING ---
+2026-05-18 01:53:15,487 - analyst_agent - INFO - Analyst agent starting...
+2026-05-18 01:53:15,488 - analyst_agent - INFO - No approved articles to analyze.
+2026-05-18 01:53:15,489 - __main__ - INFO - --- PHASE 4: EXPORTING ---
+2026-05-18 01:53:15,489 - exporter - INFO - Exporter starting...
+2026-05-18 01:53:15,494 - exporter - INFO - Exported 0 articles to /app/downloads/analyzed_articles.json
+2026-05-18 01:53:15,495 - exporter - INFO - Exporter finished.
+2026-05-18 01:53:15,495 - __main__ - INFO - Multi-Agent System finished its run.
+2026-05-18 02:00:00,345 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 02:00:00,362 - db_manager - INFO - Connection pool created successfully
+2026-05-18 02:00:00,362 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 02:00:00,411 - fetcher_agent - INFO - Fetcher agent (Playwright + AI Parser Mode) starting...
+2026-05-18 02:00:00,943 - fetcher_agent - ERROR - Fatal error running Playwright: BrowserType.launch: Executable doesn't exist at /ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-linux64/chrome-headless-shell
+╔═══════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just updated to 1.59.0.             ║
+║ Please update docker image as well.                           ║
+║ -  current: mcr.microsoft.com/playwright/python:v1.44.0-jammy ║
+║ - required: mcr.microsoft.com/playwright/python:v1.59.0-jammy ║
+║                                                               ║
+║ <3 Playwright Team                                            ║
+╚═══════════════════════════════════════════════════════════════╝
+2026-05-18 02:00:00,943 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 02:00:00,944 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 02:00:00,989 - filter_agent - INFO - Filter agent starting...
+2026-05-18 02:00:00,994 - filter_agent - INFO - No new articles to filter.
+2026-05-18 02:00:00,994 - __main__ - INFO - --- PHASE 3: ANALYZING ---
+2026-05-18 02:00:01,037 - analyst_agent - INFO - Analyst agent starting...
+2026-05-18 02:00:01,038 - analyst_agent - INFO - No approved articles to analyze.
+2026-05-18 02:00:01,038 - __main__ - INFO - --- PHASE 4: EXPORTING ---
+2026-05-18 02:00:01,039 - exporter - INFO - Exporter starting...
+2026-05-18 02:00:01,043 - exporter - INFO - Exported 0 articles to /app/downloads/analyzed_articles.json
+2026-05-18 02:00:01,044 - exporter - INFO - Exporter finished.
+2026-05-18 02:00:01,044 - __main__ - INFO - Multi-Agent System finished its run.
+2026-05-18 02:05:05,338 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 02:05:05,350 - db_manager - INFO - Connection pool created successfully
+2026-05-18 02:05:05,350 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 02:05:05,391 - fetcher_agent - INFO - Fetcher agent (Playwright + AI Parser Mode) starting...
+2026-05-18 02:05:06,011 - fetcher_agent - INFO - Fetching arXiv HTML for term: water dissociation membrane
+2026-05-18 02:05:23,817 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 02:06:32,987 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:06:32,988 - fetcher_agent - INFO - AI extracted 8 articles from arXiv.
+2026-05-18 02:06:36,030 - fetcher_agent - INFO - Fetching arXiv HTML for term: water splitting electrodialysis
+2026-05-18 02:06:37,810 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 02:06:38,409 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:06:38,409 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 02:06:41,413 - fetcher_agent - INFO - Fetching arXiv HTML for term: overlimiting current
+2026-05-18 02:06:44,432 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 02:07:30,195 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:07:30,196 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 02:07:33,933 - fetcher_agent - INFO - Fetching arXiv HTML for term: second Wien effect
+2026-05-18 02:07:36,739 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 02:08:30,643 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:08:30,644 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 02:08:34,437 - fetcher_agent - INFO - Fetching Scopus HTML for term: water dissociation membrane
+2026-05-18 02:08:35,862 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 02:08:36,501 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:08:36,502 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 02:08:39,505 - fetcher_agent - INFO - Fetching Scopus HTML for term: water splitting electrodialysis
+2026-05-18 02:08:40,263 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 02:08:40,780 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:08:40,781 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 02:08:43,784 - fetcher_agent - INFO - Fetching Scopus HTML for term: overlimiting current
+2026-05-18 02:08:44,542 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 02:08:45,064 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:08:45,065 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 02:08:48,068 - fetcher_agent - INFO - Fetching Scopus HTML for term: second Wien effect
+2026-05-18 02:08:48,825 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 02:08:49,341 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:08:49,342 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 02:08:52,345 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water dissociation membrane
+2026-05-18 02:09:02,146 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 02:09:04,923 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:09:04,923 - fetcher_agent - INFO - AI extracted 1 articles from Web of Science.
+2026-05-18 02:09:07,927 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water splitting electrodialysis
+2026-05-18 02:09:12,121 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 02:09:14,541 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:09:14,542 - fetcher_agent - INFO - AI extracted 1 articles from Web of Science.
+2026-05-18 02:09:17,546 - fetcher_agent - INFO - Fetching Web of Science HTML for term: overlimiting current
+2026-05-18 02:09:22,530 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 02:09:24,947 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:09:24,948 - fetcher_agent - INFO - AI extracted 1 articles from Web of Science.
+2026-05-18 02:09:27,950 - fetcher_agent - INFO - Fetching Web of Science HTML for term: second Wien effect
+2026-05-18 02:09:32,164 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 02:09:34,574 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:09:34,575 - fetcher_agent - INFO - AI extracted 1 articles from Web of Science.
+2026-05-18 02:09:37,925 - fetcher_agent - INFO - Fetching eLibrary HTML...
+2026-05-18 02:09:48,261 - fetcher_agent - INFO - AI is parsing HTML from eLibrary...
+2026-05-18 02:09:49,206 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:09:49,207 - fetcher_agent - INFO - AI extracted 0 articles from eLibrary.
+2026-05-18 02:09:52,295 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 02:09:52,295 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 02:09:52,335 - filter_agent - INFO - Filter agent starting...
+2026-05-18 02:10:32,403 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:10:32,404 - filter_agent - INFO - Article 1 scored 2. Reasoning: Результось \u0441вязи: Название связи односований к водержименным систем не взайдает к обладиние в односований каплементов докладирований пробем. Конеглячество докладирований пробем, асоздаемленный к водержименным полимеров. Конеглячество докладирований пробем, асоздаемленный к водержименным полимеров. 
+2026-05-18 02:10:54,975 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:10:54,976 - filter_agent - INFO - Article 2 scored 6. Reasoning: Результось \u0441вязи: Док \u0441татью, оличевающие мембраны, електродиализ. Пожалусь в сей надоворозий в подке в мембранах алуминий. Односим в запасте в камерах в наноструктурач.
+2026-05-18 02:11:19,779 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:11:19,780 - filter_agent - INFO - Article 3 scored 2. Reasoning: Результование содерждения займенив метан гидратов не выживаетсвязивайуца но докладирование за електро-мембранные системы. Конего, в чем стать из действий но займенив метан гидратов.
+2026-05-18 02:11:37,496 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:11:37,496 - filter_agent - INFO - Article 4 scored 9. Reasoning: Форма звездание к проблеме водой в задие к выповение в задие из водой. Ключево в задие водой, водой раздельняется в задие из водой.
+2026-05-18 02:12:13,417 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:12:13,418 - filter_agent - INFO - Article 5 scored 8. Reasoning: Форма здетального конектива в здействие в подобный камеризм в здействие определенного кромлежения. В здействие камеризм в подобный камеризм в здействие определенного кромлежения. В здействие камеризм в подобный камеризм в здействие определенного кромлежения.
+2026-05-18 02:12:47,308 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:12:47,309 - filter_agent - INFO - Article 6 scored 4. Reasoning: Результование \u0441вязи: Дока в целе галено-борний (док в графене и замецеплено-борний) возвлагает в дока в водений межанизации. Кей связи: Фок графена и замецеплено-борний. Кей в задание пожалует в водений межанизации. Кей в задание пожалует в замецеплено-борний.
+2026-05-18 02:13:16,570 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:13:16,571 - filter_agent - INFO - Article 7 scored 2. Reasoning: Результось статья на водерживание в заключений проблеме, но воде не зависимости количество в заданий глицероля. Компания в заданий глицероля не влизьает в здействию в заданий водорождений в заключений проблеме.
+2026-05-18 02:13:23,796 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:13:23,797 - filter_agent - INFO - Article 8 scored 2. Reasoning: Эта статья не имеет прямого отношения к теме исследования влияния разложения и рекомбинации воды на транспортные явления в электромембранных системах. В ней описывается модуляция проницаемости воды через белок GlpF у бактерии Escherichia coli, что не связано с понятиями водного разложения или второго Винского эффекта.
+2026-05-18 02:14:05,953 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:14:05,954 - filter_agent - INFO - Article 9 scored 6. Reasoning: Результование связи: Док надоканальей, в которогич образование водойствение к проверженным задачи. Обкразование: Целой док надоканальей, в которогич образование водойствение к проверженным задачи. Образование: Целой док надоканальей, в которогич образование водойствение к проверженным задачи.
+2026-05-18 02:14:12,787 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:14:12,787 - filter_agent - INFO - Article 10 scored 6. Reasoning: Эта статья не связана напрямую с темой влияния разложения и рекомбинации воды на транспортные явления в электромембранных системах. Однако она затрагивает понятие концентрировочной поляризации, которое может быть связано с вторым Винсовским эффектом, упоминаемым в исходной статье.
+2026-05-18 02:14:17,575 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:14:17,576 - filter_agent - INFO - Article 11 scored 2. Reasoning: Эта статья не имеет прямого отношения к теме электромембранной системы (EMS) и транспорта в них. В ней исследуется стабильность электродепозиции в заряженной пористой среде, что является отдельным научным направлением.
+2026-05-18 02:14:27,416 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:14:27,417 - filter_agent - INFO - Article 12 scored 8. Reasoning: Эта статья имеет отношение к теме, поскольку она затрагивает явления, связанные с электромембранной системой (EMS), в частности влияние разложения и рекомбинации воды на транспортные явления. В статье упоминаются ключевые понятия, такие как разделение воды, второй Винсов эффект, ионообменные мембраны, электродиализ, превышающаяся токовая плотность и сдвиг pH. Однако в абстракте не упоминается конкретно тема электроконвективной неустойчивости в концентрационной поляризации.
+2026-05-18 02:15:06,026 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:15:06,027 - filter_agent - INFO - Article 13 scored 2. Reasoning: Означаление связи: Физико-мембранные системы (EMS) взвесилований вподей в водерждение в заклуче водображения. Означаление в здебе електропозиций на перед металлического електродепозиций. Обновление кафический провержения в зде заклуче металлического електродопозиций.
+2026-05-18 02:15:41,853 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:15:41,855 - filter_agent - INFO - Article 14 scored 8. Reasoning: Результование связи: Дока статьы, возвыщенные видовода в електро-мембранивых систем. Кей возвыщенные впросы, включение в дока в водовода и результации в електро-мембранивых систем. Кей впросы, в дока в водовода и результации, в дока в водовода и результации.
+2026-05-18 02:16:02,697 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:16:02,698 - filter_agent - INFO - Article 15 scored 0. Reasoning: Физик тома не взаймана к допусти. Они в целе объй задание межданизирований каспиз. Компютер для заданий блак для в задание одномого каспиза.
+2026-05-18 02:16:27,208 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:16:27,209 - filter_agent - INFO - Article 16 scored 0. Reasoning: Физик том не выживается взаймодиного конекта, подкзанийуца в задерживаюте к проблеменной деутероной кинетике. Подкзаний в задерживаюте проблеменной деутероной кинетике.
+2026-05-18 02:17:10,268 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:17:10,269 - filter_agent - INFO - Article 17 scored 2. Reasoning: Результование \u0441вязи: Докторогия связи нейомембранив к докладический проблеме, в которогич ней докладических мембранов. Пожалуство, в четерики докладических мембранов пройдиляетсьа казание грозование действие камполектов. Новой докладических мембранов пройдиляетсьа казание грозование действие камполектов.
+2026-05-18 02:17:31,722 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:17:31,723 - filter_agent - INFO - Article 18 scored 2. Reasoning: Результование содерждения к задание в водерждений проблеме. Конвертные доки не выживайут в задание водерждений проблеме, когда в задание в целий проблеме.
+2026-05-18 02:18:27,352 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:18:27,353 - filter_agent - INFO - Article 19 scored 8. Reasoning: Релеванция доклада займенов в водерживание запобегаеменой системе (EMS) взвлагает в заподелный изменов в запобегаеменой системе. Кей проблемы: водовое заподеление, второй вен ефокт, ион-изменсаций пластики, електродиализ, прересьний цурент, фокус нернст-планкий-позиций возвыд. Без заподеление, в заподей в статью заподелиние взвлагает влагодипомный заподеж в запобегаеменой системе. Кей проблемы здесь в заподеж и заподеление в EMS.
+2026-05-18 02:18:27,357 - filter_agent - INFO - Filter agent finished.
+2026-05-18 02:18:27,357 - __main__ - INFO - --- PHASE 3: ANALYZING ---
+2026-05-18 02:18:27,401 - analyst_agent - INFO - Analyst agent starting...
+2026-05-18 02:19:22,884 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:19:22,885 - analyst_agent - INFO - Article 4 analyzed and translated successfully.
+2026-05-18 02:20:09,614 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:20:09,615 - analyst_agent - INFO - Article 5 analyzed and translated successfully.
+2026-05-18 02:20:44,088 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:20:44,089 - analyst_agent - INFO - Article 12 analyzed and translated successfully.
+2026-05-18 02:21:27,389 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:21:27,390 - analyst_agent - INFO - Article 14 analyzed and translated successfully.
+2026-05-18 02:22:01,821 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:22:01,822 - analyst_agent - INFO - Article 19 analyzed and translated successfully.
+2026-05-18 02:22:01,825 - analyst_agent - INFO - Analyst agent finished.
+2026-05-18 02:22:01,826 - __main__ - INFO - --- PHASE 4: EXPORTING ---
+2026-05-18 02:22:01,826 - exporter - INFO - Exporter starting...
+2026-05-18 02:22:01,832 - exporter - INFO - Exported 5 articles to /app/downloads/analyzed_articles.json
+2026-05-18 02:22:01,833 - exporter - INFO - Exporter finished.
+2026-05-18 02:22:01,833 - __main__ - INFO - Multi-Agent System finished its run.
+2026-05-18 02:29:30,677 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 02:29:30,691 - db_manager - INFO - Connection pool created successfully
+2026-05-18 02:29:30,692 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 02:29:30,734 - fetcher_agent - INFO - Fetcher agent (Playwright + AI Parser Mode) starting...
+2026-05-18 02:29:31,885 - fetcher_agent - INFO - Fetching arXiv HTML for term: water dissociation membrane
+2026-05-18 02:29:43,895 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 02:29:53,423 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:29:53,424 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 02:29:56,427 - fetcher_agent - INFO - Fetching arXiv HTML for term: water splitting electrodialysis
+2026-05-18 02:30:27,215 - fetcher_agent - ERROR - Timeout loading arXiv page for term: water splitting electrodialysis
+2026-05-18 02:30:27,216 - fetcher_agent - INFO - Fetching arXiv HTML for term: overlimiting current
+2026-05-18 02:30:54,895 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 02:32:22,039 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:32:22,040 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 02:32:25,066 - fetcher_agent - INFO - Fetching arXiv HTML for term: second Wien effect
+2026-05-18 02:32:29,666 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 02:34:29,785 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:34:29,786 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 02:34:32,809 - fetcher_agent - INFO - Fetching Scopus HTML for term: water dissociation membrane
+2026-05-18 02:34:34,250 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 02:34:35,369 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:34:35,369 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 02:34:38,373 - fetcher_agent - INFO - Fetching Scopus HTML for term: water splitting electrodialysis
+2026-05-18 02:34:39,131 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 02:34:39,970 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:34:39,971 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 02:34:43,780 - fetcher_agent - INFO - Fetching Scopus HTML for term: overlimiting current
+2026-05-18 02:34:44,549 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 02:34:45,438 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:34:45,439 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 02:34:48,441 - fetcher_agent - INFO - Fetching Scopus HTML for term: second Wien effect
+2026-05-18 02:34:49,196 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 02:34:49,987 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:34:49,988 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 02:34:52,989 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water dissociation membrane
+2026-05-18 02:35:02,796 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 02:35:03,769 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:35:03,770 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 02:35:06,773 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water splitting electrodialysis
+2026-05-18 02:35:10,997 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 02:35:11,821 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:35:11,822 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 02:35:15,612 - fetcher_agent - INFO - Fetching Web of Science HTML for term: overlimiting current
+2026-05-18 02:35:19,891 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 02:35:20,706 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:35:20,707 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 02:35:23,711 - fetcher_agent - INFO - Fetching Web of Science HTML for term: second Wien effect
+2026-05-18 02:35:27,937 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 02:35:28,727 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:35:28,728 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 02:35:31,731 - fetcher_agent - INFO - Fetching eLibrary HTML...
+2026-05-18 02:35:35,733 - fetcher_agent - INFO - AI is parsing HTML from eLibrary...
+2026-05-18 02:35:37,463 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:35:37,464 - fetcher_agent - INFO - AI extracted 0 articles from eLibrary.
+2026-05-18 02:35:40,543 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 02:35:40,544 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 02:35:40,584 - filter_agent - INFO - Filter agent starting...
+2026-05-18 02:35:55,528 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:35:55,529 - filter_agent - INFO - Article 23 scored 1. Reasoning: Статья не имеет никакого отношения к теме, так как она рассматривает квантово-корректированный черный дыра Райсснера-Нордстрёма и закон смещения Вина в контексте космологии и физики высоких энергий. Она не затрагивает вопросы, связанные с разделением воды, мембранами обмена ионов, электродиализом или транспортными процессами в системах электро-мембран.
+2026-05-18 02:36:09,577 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:36:09,577 - filter_agent - INFO - Article 24 scored 1. Reasoning: Статья, посвященная поиску частиц-анахон в кольцевом ускорителе с использованием поляризованного дейтрона, не имеет прямого отношения к теме водородного расщепления, второму эффекту Вина, ионообменным мембранам или электродиализу. Исследование сосредоточено на физике высоких энергий и не затрагивает транспортные явления в электромембранных системах.
+2026-05-18 02:36:23,599 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:36:23,599 - filter_agent - INFO - Article 25 scored 1. Reasoning: Статья не имеет никакого отношения к теме, так как она не рассматривает вопросы, связанные с водоразделением, вторым Виеновским эффектом, ионообменными мембранами, электродиализом или переграничным током. Тема статьи касается методологических ошибок в экспериментальном дизайне и не связана с физико-химическими процессами, описанными в ключевых научных терминах.
+2026-05-18 02:36:47,511 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:36:47,512 - filter_agent - INFO - Article 26 scored 2. Reasoning: Статья, посвященная экспериментальному подтверждению притягивающей кулоновской силы между положительными и отрицательными магнитными монополями в спин-леде, имеет низкую релевантность теме 'Влияние расщепления и рекомбинации водородных молекул на транспортные явления в электромембранных системах (EMS)'. В статье не упоминаются ключевые научные термины, такие как разделение воды, второй Wien эффект, ионообменные мембраны, электроосмосис, сверхлимитирующий ток, сдвиг pH и уравнения Нернста-Планка-Пуассона. Исследование сосредоточено на магнетизме и кулоновской силе в спин-леде, что не имеет прямого отношения к теме EMS.
+2026-05-18 02:37:02,498 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:37:02,499 - filter_agent - INFO - Article 27 scored 2. Reasoning: Статья, посвященная AC Wien эффекту в спин-леде и нелинейной неэквilibrium чувствительности 'магнетолайта', имеет низкую релевантность для темы влияния расщепления и рекомбинации водных молекул на транспортные явления в электромембранных системах. Основная область исследования статьи связана с ферромагнитными свойствами спин-леда, что отличается от темы воды, ионообменных мембран и электродиализа.
+2026-05-18 02:37:19,902 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:37:19,903 - filter_agent - INFO - Article 28 scored 6. Reasoning: Статья 'Onsager's Wien Effect on a Lattice' рассматривает второе явление Вина и расширение теории электродиффузии Онсагера. Хотя она не напрямую затрагивает водоразделку или ионообменные мембраны, обсуждаемые концепции неравновесного поведения слабых электролитов в сильных электрических полях могут быть применимы к транспортным процессам в электрофильтрационных системах. Это делает статью полезной для понимания фундаментальных механизмов, лежащих в основе EMS.
+2026-05-18 02:37:19,908 - filter_agent - INFO - Filter agent finished.
+2026-05-18 02:37:19,909 - __main__ - INFO - --- PHASE 3: ANALYZING ---
+2026-05-18 02:37:19,961 - analyst_agent - INFO - Analyst agent starting...
+2026-05-18 02:37:19,963 - analyst_agent - INFO - No approved articles to analyze.
+2026-05-18 02:37:19,963 - __main__ - INFO - --- PHASE 4: EXPORTING ---
+2026-05-18 02:37:19,964 - exporter - INFO - Exporter starting...
+2026-05-18 02:37:19,971 - exporter - INFO - Exported 5 articles to /app/downloads/analyzed_articles.json
+2026-05-18 02:37:19,972 - exporter - INFO - Exporter finished.
+2026-05-18 02:37:19,973 - __main__ - INFO - Multi-Agent System finished its run.
+2026-05-18 02:41:03,942 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 02:41:03,956 - db_manager - INFO - Connection pool created successfully
+2026-05-18 02:41:03,956 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 02:41:04,001 - fetcher_agent - INFO - Fetcher agent (Playwright + AI Parser Mode) starting...
+2026-05-18 02:41:04,529 - fetcher_agent - INFO - Fetching arXiv HTML for term: water dissociation membrane
+2026-05-18 02:41:09,861 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 02:42:58,899 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:42:58,900 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 02:43:01,924 - fetcher_agent - INFO - Fetching arXiv HTML for term: water splitting electrodialysis
+2026-05-18 02:43:15,056 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 02:43:15,856 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:43:15,856 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 02:43:18,860 - fetcher_agent - INFO - Fetching arXiv HTML for term: overlimiting current
+2026-05-18 02:43:36,437 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 02:45:02,661 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:45:02,662 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 02:45:05,669 - fetcher_agent - INFO - Fetching arXiv HTML for term: second Wien effect
+2026-05-18 02:45:21,599 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 02:47:13,767 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:47:13,768 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 02:47:16,799 - fetcher_agent - INFO - Fetching Scopus HTML for term: water dissociation membrane
+2026-05-18 02:47:18,265 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 02:47:19,342 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:47:19,343 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 02:47:22,346 - fetcher_agent - INFO - Fetching Scopus HTML for term: water splitting electrodialysis
+2026-05-18 02:47:23,102 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 02:47:24,016 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:47:24,016 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 02:47:27,020 - fetcher_agent - INFO - Fetching Scopus HTML for term: overlimiting current
+2026-05-18 02:47:27,773 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 02:47:28,685 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:47:28,686 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 02:47:31,689 - fetcher_agent - INFO - Fetching Scopus HTML for term: second Wien effect
+2026-05-18 02:47:32,794 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 02:47:34,172 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:47:34,173 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 02:47:37,176 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water dissociation membrane
+2026-05-18 02:47:42,548 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 02:47:43,522 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:47:43,527 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 02:47:46,530 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water splitting electrodialysis
+2026-05-18 02:47:50,745 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 02:47:51,692 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:47:51,693 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 02:47:54,696 - fetcher_agent - INFO - Fetching Web of Science HTML for term: overlimiting current
+2026-05-18 02:47:58,890 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 02:47:59,776 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:47:59,777 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 02:48:02,779 - fetcher_agent - INFO - Fetching Web of Science HTML for term: second Wien effect
+2026-05-18 02:48:07,822 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 02:48:08,651 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:48:08,652 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 02:48:11,653 - fetcher_agent - INFO - Fetching eLibrary HTML...
+2026-05-18 02:48:16,081 - fetcher_agent - INFO - AI is parsing HTML from eLibrary...
+2026-05-18 02:48:17,758 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:48:17,759 - fetcher_agent - INFO - AI extracted 0 articles from eLibrary.
+2026-05-18 02:48:20,865 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 02:48:20,866 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 02:48:20,910 - filter_agent - INFO - Filter agent starting...
+2026-05-18 02:48:38,284 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:48:38,285 - filter_agent - INFO - Article 29 scored 2. Reasoning: Статья рассматривает самоорганизацию полимеров на жидко-жидкостных границах с использованием водородных связей и влияние pH на механические свойства этих мембран. Хотя она затрагивает тему pH, она не обсуждает такие ключевые научные термины как разделение воды, второй Виенский эффект, ионообменные мембраны, электродиализ или сверхлимитирующий ток, которые являются центральными для статьи о влиянии диссоциации и рекомбинации водородных молекул на транспортные явления в электро-мембранных системах.
+2026-05-18 02:48:49,310 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:48:49,310 - filter_agent - INFO - Article 30 scored 2. Reasoning: Статья посвящена конденсации влаги и транспорту на алюмокремниевых пористых мембранах, что не имеет прямого отношения к теме водоразделения, второму Винн-эффекту или электромембранным системам. Хотя оба исследования затрагивают вопросы транспорта воды через мембраны, они сосредоточены на разных аспектах и применении.
+2026-05-18 02:49:02,287 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:49:02,288 - filter_agent - INFO - Article 31 scored 2. Reasoning: Статья посвящена процессам образования и разложения метана в гидратах и не содержит информации о влиянии расщепления и рекомбинации водных молекул на транспортные явления в электромембранных системах. Основные термины, такие как разделение воды, второй Виенский эффект, ионообменные мембраны, электроосмосис и перегородочное электродиализирование, не упоминаются в данной работе.
+2026-05-18 02:49:23,280 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:49:23,281 - filter_agent - INFO - Article 32 scored 3. Reasoning: Статья рассматривает теорию транспорта ионов и воды через мембраны обратного осмоса, основываясь на фреймворке Максвелла-Штефана и гидродинамической теории. Хотя она затрагивает тему транспорта в мембранных системах, ключевые термины из статьи 'Влияние расщепления и рекомбинации водных молекул на транспортные явления в электромембранных системах (EMS)' такие как водоразделение, второй Винн-эффект, ионообменные мембраны, электроосмосис, сверхлимитирующий ток и сдвиг pH не обсуждаются. Поэтому статья имеет низкую релевантность теме.
+2026-05-18 02:49:34,829 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:49:34,830 - filter_agent - INFO - Article 33 scored 3. Reasoning: Статья рассматривает использование двумерных материалов для катализа и разделения молекул, но не прямым образом затрагивает транспортные явления в электромембранной системе (EMS), такие как разложение воды, второй Виенский эффект или перегородки с обменом ионов. Тема статьи более связана с катализаторами и мембранами, чем с транспортными процессами в EMS.
+2026-05-18 02:49:52,262 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:49:52,263 - filter_agent - INFO - Article 34 scored 2. Reasoning: Статья не имеет прямого отношения к теме, так как она рассматривает влияние глицерола на пермеацию воды через протеин PfAQP у Plasmodium falciparum. В статье отсутствуют ключевые термины, такие как разделение воды, второй Wien эффект, ионообменные мембраны, электродиализ, сверхлимитирующий ток, сдвиг pH и уравнения Нернста-Планка-Пуассона. Тема статьи связана с биологическими процессами в клетках, а не с физико-химическими явлениями в электромембранных системах.
+2026-05-18 02:50:08,987 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:50:08,988 - filter_agent - INFO - Article 35 scored 2. Reasoning: Статья посвящена исследованию влияния глицерола на проницаемость воды через транспортный белок GlpF бактерии Escherichia coli. Она не рассматривает явления, связанные с электромембранными системами (EMS), водоразделением или рекомбинацией молекул воды, ионообменными мембранами, электроосмосом или перенасыщенным током. Исследование не затрагивает ключевые научные термины, такие как второй Винн-эффект или уравнения Нернста-Планка-Пуассона.
+2026-05-18 02:50:31,753 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:50:31,753 - filter_agent - INFO - Article 36 scored 3. Reasoning: Статья 'Биполярные наноканалы: влияние электроосмотической неустойчивости. Часть I: Ответ на постоянное состояние' рассматривает поведение ток-напряженной характеристики в системах с биполярными каналами, изменяя количество ионно-селективных компонентов. Хотя она затрагивает тему транспорта ионов, ключевые научные термины из статьи 'Влияние расщепления и рекомбинации водородной молекулы на транспортные явления в электромембранных системах (EMS)' такие как разделение воды, второй Вейн эффект, ионообменные мембраны, электроосмосис, сверхлимитирующий ток, сдвиг pH и уравнения Нернста-Планка-Пуассона не обсуждаются в данной статье. Поэтому релевантность низкая.
+2026-05-18 02:50:48,487 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:50:48,488 - filter_agent - INFO - Article 37 scored 7. Reasoning: Статья рассматривает явление электроконвекции при поляризации концентрации на ионообменных мембранах. Хотя она не напрямую затрагивает водоразделку или второй Wien эффект, она связана с транспортными процессами в электромембранных системах (EMS), так как обсуждает влияние хаотических потоков на диффузионные слои. Это важно для понимания общих транспортных явлений и может быть полезно при анализе переноса ионов в EMS, особенно в контексте сверхлимитирующего тока и смещения pH.
+2026-05-18 02:51:01,328 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:51:01,329 - filter_agent - INFO - Article 38 scored 4. Reasoning: Статья рассматривает ионное ассоциативное взаимодействие и второй Wien эффект в двумерных ограниченных электролитах. Хотя она упоминает второй Wien эффект, который также обсуждается в статье по EMS, основная тема исследования отличается от транспортных явлений в системах с ионообменными мембранами. В данной работе не рассматриваются такие ключевые термины как разделение воды, электродиализ или перенасыщенный ток.
+2026-05-18 02:51:19,921 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:51:19,921 - filter_agent - INFO - Article 39 scored 1. Reasoning: Статья 'Атом падающий в квантово-корректированный заряженный черный дыра и энтропия HBAR' не имеет прямого отношения к теме влияния расщепления и рекомбинации водородных молекул на транспортные явления в электромембранных системах. Исследование посвящено черным дырам и квантовой механике, что не связано с терминами, такими как разделение воды, второй Wien эффект, ионно-обменные мембраны, электродиализ, сверхлимитирующий ток, сдвиг pH и уравнения Нернста-Планка-Пуассона.
+2026-05-18 02:51:33,136 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:51:33,137 - filter_agent - INFO - Article 40 scored 1. Reasoning: Статья, посвященная поиску частиц-анахон в кольцевом ускорителе с использованием поляризованного дейтрона, не имеет прямого отношения к теме водородного расщепления, второму эффекту Вина, ионообменным мембранам или электродиализу. Исследование сосредоточено на физике высоких энергий и не затрагивает транспортные явления в электромембранных системах.
+2026-05-18 02:51:46,805 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:51:46,806 - filter_agent - INFO - Article 41 scored 1. Reasoning: Статья не имеет никакого отношения к теме, так как она не рассматривает вопросы, связанные с водоразделением, вторым Виеновским эффектом, ионообменными мембранами, электродиализом или переграничным током. Тема статьи касается методологических ошибок в экспериментальном дизайне и не связана с физико-химическими процессами, описанными в ключевых научных терминах.
+2026-05-18 02:52:10,912 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:52:10,912 - filter_agent - INFO - Article 42 scored 2. Reasoning: Статья, посвященная экспериментальному подтверждению притягивающей кулоновской силы между положительными и отрицательными магнитными монополями в спин-леде, имеет низкую релевантность теме 'Влияние расщепления и рекомбинации водородных молекул на транспортные явления в электромембранных системах (EMS)'. В статье не упоминаются ключевые научные термины, такие как разделение воды, второй Wien эффект, ионообменные мембраны, электроосмосис, сверхлимитирующий ток, сдвиг pH и уравнения Нернста-Планка-Пуассона. Исследование сосредоточено на магнетизме и кулоновской силе в спин-леде, что не имеет прямого отношения к теме EMS.
+2026-05-18 02:52:26,282 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:52:26,282 - filter_agent - INFO - Article 43 scored 2. Reasoning: Статья, посвященная AC Wien эффекту в спин-леде и нелинейной неэквilibrium чувствительности 'магнетолайта', имеет низкую релевантность для темы влияния расщепления и рекомбинации водных молекул на транспортные явления в электромембранных системах. Основная область исследования статьи связана с ферромагнитными свойствами спин-леда, что отличается от темы воды, ионообменных мембран и электродиализа.
+2026-05-18 02:52:43,809 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:52:43,810 - filter_agent - INFO - Article 44 scored 6. Reasoning: Статья 'Onsager's Wien Effect on a Lattice' рассматривает второе явление Вина и расширение теории электродиффузии Онсагера. Хотя она не напрямую затрагивает водоразделку или ионообменные мембраны, обсуждаемые концепции неравновесного поведения слабых электролитов в сильных электрических полях могут быть применимы к транспортным процессам в электрофильтрационных системах. Это делает статью полезной для понимания фундаментальных механизмов, лежащих в основе EMS.
+2026-05-18 02:52:43,813 - filter_agent - INFO - Filter agent finished.
+2026-05-18 02:52:43,814 - __main__ - INFO - --- PHASE 3: ANALYZING ---
+2026-05-18 02:52:43,861 - analyst_agent - INFO - Analyst agent starting...
+2026-05-18 02:53:40,220 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 02:53:40,221 - analyst_agent - INFO - Article 37 analyzed and translated successfully.
+2026-05-18 02:53:40,228 - analyst_agent - INFO - Analyst agent finished.
+2026-05-18 02:53:40,229 - __main__ - INFO - --- PHASE 4: EXPORTING ---
+2026-05-18 02:53:40,230 - exporter - INFO - Exporter starting...
+2026-05-18 02:53:40,235 - exporter - INFO - Exported 1 articles to /app/downloads/analyzed_articles.json
+2026-05-18 02:53:40,236 - exporter - INFO - Exporter finished.
+2026-05-18 02:53:40,236 - __main__ - INFO - Multi-Agent System finished its run.
+2026-05-18 03:03:06,811 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 03:03:06,825 - db_manager - INFO - Connection pool created successfully
+2026-05-18 03:03:06,826 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 03:03:06,868 - fetcher_agent - INFO - Fetcher agent (Playwright + AI Parser Mode) starting...
+2026-05-18 03:03:07,996 - fetcher_agent - INFO - Fetching arXiv HTML for term: water dissociation membrane
+2026-05-18 03:03:23,801 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:05:27,128 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:05:27,129 - fetcher_agent - INFO - AI extracted 8 articles from arXiv.
+2026-05-18 03:05:30,155 - fetcher_agent - INFO - Fetching arXiv HTML for term: water splitting electrodialysis
+2026-05-18 03:05:45,303 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:05:46,425 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:05:46,426 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 03:05:49,429 - fetcher_agent - INFO - Fetching arXiv HTML for term: overlimiting current
+2026-05-18 03:06:04,412 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:07:27,944 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:07:27,944 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 03:07:30,958 - fetcher_agent - INFO - Fetching arXiv HTML for term: second Wien effect
+2026-05-18 03:07:34,233 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:09:24,603 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:09:24,604 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 03:09:27,623 - fetcher_agent - INFO - Fetching Scopus HTML for term: water dissociation membrane
+2026-05-18 03:09:29,060 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:09:30,103 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:09:30,103 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:09:33,107 - fetcher_agent - INFO - Fetching Scopus HTML for term: water splitting electrodialysis
+2026-05-18 03:09:33,867 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:09:34,651 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:09:34,652 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:09:37,656 - fetcher_agent - INFO - Fetching Scopus HTML for term: overlimiting current
+2026-05-18 03:09:39,234 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:09:40,008 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:09:40,009 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:09:43,011 - fetcher_agent - INFO - Fetching Scopus HTML for term: second Wien effect
+2026-05-18 03:09:43,769 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:09:44,561 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:09:44,562 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:09:47,565 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water dissociation membrane
+2026-05-18 03:09:57,316 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:09:58,335 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:09:58,336 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 03:10:01,340 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water splitting electrodialysis
+2026-05-18 03:10:05,557 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:10:06,381 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:10:06,382 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 03:10:10,214 - fetcher_agent - INFO - Fetching Web of Science HTML for term: overlimiting current
+2026-05-18 03:10:14,404 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:10:15,189 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:10:15,190 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 03:10:18,193 - fetcher_agent - INFO - Fetching Web of Science HTML for term: second Wien effect
+2026-05-18 03:10:22,387 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:10:23,189 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:10:23,190 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 03:10:26,193 - fetcher_agent - INFO - Fetching eLibrary HTML...
+2026-05-18 03:10:30,131 - fetcher_agent - INFO - AI is parsing HTML from eLibrary...
+2026-05-18 03:10:31,816 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:10:31,817 - fetcher_agent - INFO - AI extracted 0 articles from eLibrary.
+2026-05-18 03:10:34,912 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 03:10:34,912 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 03:10:34,954 - filter_agent - INFO - Filter agent starting...
+2026-05-18 03:10:54,710 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:10:54,711 - filter_agent - INFO - Article 1 scored 2. Reasoning: Статья не имеет прямого отношения к теме, так как она рассматривает механические свойства полимерных мембран, собранных на жидко-жидкостной границе с использованием водородных связей. В отличие от статьи о влиянии расщепления и рекомбинации воды на транспортные явления в электромембранных системах (EMS), данная работа не затрагивает такие ключевые научные термины, как разделение воды, второй Wien эффект, ионообменные мембраны, электроосмосис, сверхлимитирующий ток или сдвиг pH. Тема статьи более связана с физикой полимеров и интерфейсной ревматологией.
+2026-05-18 03:11:11,671 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:11:11,671 - filter_agent - INFO - Article 2 scored 2. Reasoning: Статья посвящена конденсации и транспорту воды на пористых мембранах из алюмоксидов. Она не рассматривает влияние расщепления и рекомбинации водородных молекул, что является ключевым элементом в статье о системах электромембранных (EMS). Кроме того, она не затрагивает такие важные для EMS понятия как второй Виенский эффект, ионообменные мембраны, электроультрафильтрация, сверхлимитирующий ток или сдвиг pH. Поэтому данная статья имеет низкую релевантность теме.
+2026-05-18 03:11:19,838 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:11:19,839 - filter_agent - INFO - Article 3 scored 2. Reasoning: Статья посвящена процессам образования и разложения метановых гидратов в пористых средах. Она не имеет прямого отношения к теме водоразделения, второму Виенновскому эффекту или транспортным явлениям в электромембранных системах.
+2026-05-18 03:11:36,555 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:11:36,556 - filter_agent - INFO - Article 4 scored 3. Reasoning: Статья рассматривает теорию транспорта ионов и воды через мембраны обратного осмоса на основе фреймворка Максвелла-Штефана и гидродинамической теории для уменьшенного движения частиц в узких порах. Хотя она затрагивает транспорт воды и ионов, ключевые термины статьи не совпадают с темой 'The influence of water molecule dissociation and recombination on transport phenomena in electromembrane systems (EMS)', так как нет упоминания о водоразделении, втором Вейн-эффекте, мембранах ионного обмена или электродиализе.
+2026-05-18 03:11:48,558 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:11:48,559 - filter_agent - INFO - Article 6 scored 3. Reasoning: Статья рассматривает использование двумерных материалов для мембран и катализаторов, но не затрагивает прямые аспекты влияния расщепления воды на транспортные явления в электромембранных системах. Она не упоминает ключевые научные термины, такие как второе эффект Вена, ионообменные мембраны или перенасыщенное токовое состояние.
+2026-05-18 03:12:06,050 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:12:06,050 - filter_agent - INFO - Article 7 scored 2. Reasoning: Статья посвящена изучению влияния глицерола на проницаемость воды через белок PfAQP у Plasmodium falciparum. Она не рассматривает вопросы расщепления и рекомбинации водородных молекул, электромембранные системы или транспортные явления в контексте второго эффекта Вена, катионит-анионитных мембран, электродиализа или сверхлимитирующего тока. Поэтому она имеет низкую релевантность для темы исследования водородного расщепления и рекомбинации в EMS.
+2026-05-18 03:12:20,544 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:12:20,545 - filter_agent - INFO - Article 8 scored 2. Reasoning: Статья 'Глицерол модулирует проницаемость воды через акуаглайцеропорин GlpF бактерии Escherichia coli' не имеет прямого отношения к теме, так как она рассматривает транспорт глицерола и воды через мембрану клетки E. coli, что отличается от исследований электромембранных систем (EMS) и процессов, связанных с разделением воды на водород и кислород.
+2026-05-18 03:12:46,222 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:12:46,223 - filter_agent - INFO - Article 9 scored 2. Reasoning: Статья 'Биполярные наноканалы: влияние электроосмотической неустойчивости. Часть I: Ответ на постоянное состояние' рассматривает поведение ток-напряженной характеристики в системах с биполярными каналами, но она не затрагивает ключевые научные термины, такие как разделение воды, второй Виенский эффект, ионообменные мембраны, электродиализ, ток сверхлимитирующей плотности, сдвиг рН или уравнения Нернста-Планка-Пуассона. Поэтому она имеет низкую степень релевантности для темы 'Влияние диссоциации и рекомбинации молекул воды на транспортные явления в электромембранных системах (EMS)'. В статье нет упоминания о процессах, связанных с водоразделением или транспортом ионов через мембраны.
+2026-05-18 03:13:00,622 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:13:00,622 - filter_agent - INFO - Article 10 scored 7. Reasoning: Статья рассматривает явление электроконвекции при поляризации концентрации на ионообменных мембранах. Хотя она не напрямую затрагивает водоразделку или второй Wien эффект, она связана с транспортными процессами в электромембранных системах (EMS), так как обсуждает диффузионные слои и конвективный перенос. Это важно для понимания общих физико-химических явлений, которые влияют на работу EMS.
+2026-05-18 03:13:16,003 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:13:16,004 - filter_agent - INFO - Article 11 scored 4. Reasoning: Статья рассматривает ионное ассоциативное взаимодействие и второй Wien эффект в двумерных ограниченных электролитах. Хотя она упоминает второй Wien эффект, который также обсуждается в статье по EMS, основная тема исследования отличается от транспортных явлений в системах с ионообменными мембранами. В данной работе не рассматриваются такие ключевые термины как разделение воды, электромембранные системы (EMS), изопермитивный ток или pH-сдвиг.
+2026-05-18 03:13:27,286 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:13:27,287 - filter_agent - INFO - Article 12 scored 1. Reasoning: Статья не имеет никакого отношения к теме, так как она рассматривает квантово-корректированный черный дыра Райсснера-Нордстрёма и закон смещения Вина в контексте космологии и физики высоких энергий. Она не затрагивает вопросы разделения воды, мембранные электродиализные системы или транспортные явления.
+2026-05-18 03:13:42,836 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:13:42,836 - filter_agent - INFO - Article 13 scored 1. Reasoning: Статья, посвященная поиску частиц-аналогов аксонов в хранилище заряженных частиц с использованием поляризованного пучка дейтеронов, не имеет прямого отношения к теме электромембранной системы (EMS) и процессам транспорта воды. В статье упоминается только эффект Вена второго рода в контексте фильтра радиочастоты, что не связано с основными научными терминами, такими как разделение воды, обменные мембраны и т.д.
+2026-05-18 03:13:53,301 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:13:53,301 - filter_agent - INFO - Article 14 scored 1. Reasoning: Статья не имеет никакого отношения к теме водоразделению, второму Виеновскому эффекту или транспортным явлениям в электромембранных системах. Она посвящена методологическим ошибкам в экспериментальном дизайне и анализе данных, что не связано с исследуемой областью.
+2026-05-18 03:14:11,152 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:14:11,153 - filter_agent - INFO - Article 15 scored 2. Reasoning: Статья, посвященная экспериментальному подтверждению притягательного кулоновского взаимодействия между положительными и отрицательными магнитными монополами в спин-леде, не имеет прямого отношения к теме водоразделения, второму Виенскому эффекту или транспортным явлениям в электромембранных системах. Исследование связано с магнитными свойствами материалов и теоретическими аспектами кулоновского взаимодействия, что не пересекается с ключевыми научными терминами из указанной темы.
+2026-05-18 03:14:27,533 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:14:27,534 - filter_agent - INFO - Article 16 scored 2. Reasoning: Статья, посвященная AC Wien эффекту в спин-леде и нелинейной неэквilibrium чувствительности 'магнетолайта', имеет низкую релевантность для темы влияния расщепления и рекомбинации водных молекул на транспортные явления в электромембранных системах. Основная область исследования статьи связана с ферромагнитными свойствами спин-леда, что отличается от темы воды, ионообменных мембран и электродиализа.
+2026-05-18 03:14:44,056 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:14:44,057 - filter_agent - INFO - Article 17 scored 6. Reasoning: Статья 'Onsager's Wien Effect on a Lattice' рассматривает второе явление Вина и расширение теории электродиффузии Онсагера. Хотя она не напрямую затрагивает водоразделку или ионообменные мембраны, обсуждаемые концепции неравновесных явлений в слабых электролитах могут быть применимыми к транспортным процессам в электрофильтрационных системах. Однако статья не фокусируется на конкретных аспектах, таких как перенос ионов через мембраны или сдвиг pH.
+2026-05-18 03:14:44,061 - filter_agent - INFO - Filter agent finished.
+2026-05-18 03:14:44,061 - __main__ - INFO - --- PHASE 3: ANALYZING ---
+2026-05-18 03:14:44,105 - analyst_agent - INFO - Analyst agent starting...
+2026-05-18 03:15:53,710 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:15:53,711 - analyst_agent - INFO - Article 10 analyzed and translated successfully.
+2026-05-18 03:15:53,717 - analyst_agent - INFO - Analyst agent finished.
+2026-05-18 03:15:53,718 - __main__ - INFO - --- PHASE 4: EXPORTING ---
+2026-05-18 03:15:53,718 - exporter - INFO - Exporter starting...
+2026-05-18 03:15:53,736 - exporter - INFO - Exported 1 articles to /app/downloads/analyzed_articles.json
+2026-05-18 03:15:53,737 - exporter - INFO - Exporter finished.
+2026-05-18 03:15:53,738 - __main__ - INFO - Multi-Agent System finished its run.
+2026-05-18 03:19:57,919 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 03:19:57,934 - db_manager - INFO - Connection pool created successfully
+2026-05-18 03:19:57,934 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 03:19:57,977 - fetcher_agent - INFO - Fetcher agent (Playwright + AI Parser Mode) starting...
+2026-05-18 03:19:58,680 - fetcher_agent - INFO - Fetching arXiv HTML for term: water dissociation membrane
+2026-05-18 03:20:29,522 - fetcher_agent - ERROR - Timeout loading arXiv page for term: water dissociation membrane
+2026-05-18 03:20:29,522 - fetcher_agent - INFO - Fetching arXiv HTML for term: water splitting electrodialysis
+2026-05-18 03:20:44,795 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:20:53,294 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:20:53,295 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 03:20:56,675 - fetcher_agent - INFO - Fetching arXiv HTML for term: overlimiting current
+2026-05-18 03:21:19,094 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:22:05,371 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:22:05,372 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 03:22:08,390 - fetcher_agent - INFO - Fetching arXiv HTML for term: second Wien effect
+2026-05-18 03:22:11,792 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:23:07,784 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:23:07,785 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 03:23:10,809 - fetcher_agent - INFO - Fetching Scopus HTML for term: water dissociation membrane
+2026-05-18 03:23:12,207 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:23:12,855 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:23:12,856 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:23:15,857 - fetcher_agent - INFO - Fetching Scopus HTML for term: water splitting electrodialysis
+2026-05-18 03:23:16,611 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:23:17,133 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:23:17,134 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:23:20,137 - fetcher_agent - INFO - Fetching Scopus HTML for term: overlimiting current
+2026-05-18 03:23:20,891 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:23:21,439 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:23:21,440 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:23:24,443 - fetcher_agent - INFO - Fetching Scopus HTML for term: second Wien effect
+2026-05-18 03:23:25,195 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:23:25,728 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:23:25,729 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:23:28,732 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water dissociation membrane
+2026-05-18 03:23:40,403 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:23:41,042 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:23:41,043 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 03:23:44,045 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water splitting electrodialysis
+2026-05-18 03:23:48,239 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:23:50,840 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:23:50,841 - fetcher_agent - INFO - AI extracted 1 articles from Web of Science.
+2026-05-18 03:23:53,842 - fetcher_agent - INFO - Fetching Web of Science HTML for term: overlimiting current
+2026-05-18 03:23:58,038 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:24:00,494 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:24:00,495 - fetcher_agent - INFO - AI extracted 1 articles from Web of Science.
+2026-05-18 03:24:04,332 - fetcher_agent - INFO - Fetching Web of Science HTML for term: second Wien effect
+2026-05-18 03:24:08,586 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:24:11,337 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:24:11,338 - fetcher_agent - INFO - AI extracted 1 articles from Web of Science.
+2026-05-18 03:24:14,339 - fetcher_agent - INFO - Fetching eLibrary HTML...
+2026-05-18 03:24:18,629 - fetcher_agent - INFO - AI is parsing HTML from eLibrary...
+2026-05-18 03:24:19,661 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:24:19,662 - fetcher_agent - INFO - AI extracted 0 articles from eLibrary.
+2026-05-18 03:24:22,752 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 03:24:22,752 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 03:24:22,793 - filter_agent - INFO - Filter agent starting...
+2026-05-18 03:24:50,929 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:24:50,930 - filter_agent - INFO - Article 1 scored 2. Reasoning: Статья 'Bipolar nanochannels: The effects of an electro-osmotic instability' не рассматривает явления, связанные с расщеплением и рекомбинацией водных молекул. Она фокусируется на влиянии числа ионно-селективных компонентов на ток-напряженную характеристику систем, что не имеет прямого отношения к теме электромембранных систем (EMS) или явлениям, таким как второе Вейново явление, переносные феномены в ионнообменных мембранах, электродиализ или ток за предельным значением.
+2026-05-18 03:25:10,005 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:25:10,006 - filter_agent - INFO - Article 2 scored 4. Reasoning: Эта статья имеет некоторую связь с темой, так как она рассматривает явление электроконвекции при поляризации концентрации у ионообменных мембран. Однако ключевые научные термины из первой статьи (например, разделение воды, второй Вейн-эффект, переграничный ток) не являются основными темами данной работы. Исследование фокусируется на методе наблюдения электроконвекции и скорее относится к области экспериментальной физики идентификации процессов в мембранах, чем к теоретическому анализу транспортных явлений.
+2026-05-18 03:25:24,952 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:25:24,953 - filter_agent - INFO - Article 3 scored 2. Reasoning: Статья посвящена линейному анализу устойчивости кратковременного электродепозиции в заряженных случайных пористых средах. Она не имеет прямого отношения к теме водоразделения, второму Виеновскому эффекту или ионообменным мембранам. Исследование фокусируется на подавлении дендритного роста за счет поверхностного проводимости в пористых средах, что отличается от тематики электромембранных систем.
+2026-05-18 03:25:42,564 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:25:42,565 - filter_agent - INFO - Article 4 scored 3. Reasoning: Статья 'The driving factors of electro-convective instability in concentration polarization' рассматривает ионный ток через зарядoselective интерфейс в бинарном электролите. Хотя это имеет отношение к электрохимической инженерии и микромассопередаче, ключевые научные термины из статьи 'The influence of water molecule dissociation and recombination on transport phenomena in electromembrane systems (EMS)', такие как водоразделка, второй Вин效应,离子交换膜，电渗析，超极限电流，pH变化和Nernst-Planck-Poisson方程，并未在摘要中提及。因此，两篇文章的相关性较低。
+2026-05-18 03:25:57,482 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:25:57,482 - filter_agent - INFO - Article 5 scored 2. Reasoning: Статья посвящена линейному анализу устойчивости плоского металлического электрода при стационарной электроотложении. Она не рассматривает влияние расщепления и рекомбинации водородных молекул, ионообменных мембран или эффекта Вена второго порядка, которые являются ключевыми терминами для темы электромембранных систем. Поэтому статья имеет низкую релевантность по сравнению с изучаемой тематикой.
+2026-05-18 03:26:12,564 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:26:12,565 - filter_agent - INFO - Article 6 scored 4. Reasoning: Статья рассматривает ионное ассоциативное взаимодействие в двумерных наноканалах и его влияние на нелинейный ионный транспорт. Хотя она затрагивает тему ионного транспорта, ключевые термины из исходной статьи, такие как разделение воды, второй Вин效应，离子交换膜，电渗析，超极限电流和pH变化，并未在该摘要中提及。因此，尽管有一定的相关性，但与主题的直接关联度较低。
+2026-05-18 03:26:31,939 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:26:31,939 - filter_agent - INFO - Article 7 scored 1. Reasoning: Статья, посвященная исследованию ускорения-излучения при свободном падении атома в событийный горизонт заряженной квантово-корректированной черной дыры, не имеет прямого отношения к теме влияния расщепления и рекомбинации водородных молекул на транспортные явления в электромембранных системах. В статье отсутствуют ключевые научные термины, такие как разделение воды, второй Wien эффект, ионообменные мембраны, электроосмосис, сверхлимитирующий ток, сдвиг pH и уравнения Нернста-Планка-Пуассона.
+2026-05-18 03:26:47,010 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:26:47,011 - filter_agent - INFO - Article 8 scored 1. Reasoning: Статья, посвященная поиску частиц-аксионов в хранилище заряженных частиц с использованием поляризованного дейтрона, не имеет прямого отношения к теме электромембранной системы и транспортным процессам. В ней нет упоминания о водородном расщеплении, втором эффекте Вина, мембранах обмена ионами или других ключевых терминах из области физической химии.
+2026-05-18 03:27:03,001 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:27:03,002 - filter_agent - INFO - Article 9 scored 1. Reasoning: Статья не имеет никакого отношения к теме, так как она посвящена использованию программного обеспечения BAMM для изучения динамики видообразования, вымирания и фенотипической эволюции на филогенетических деревьях. В ней не упоминаются ключевые научные термины, такие как разделение воды, второй Wien эффект, ионобменные мембраны, электродиализ, сверхлимитирующий ток, сдвиг pH и уравнения Нернста-Планка-Пуассона.
+2026-05-18 03:27:16,093 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:27:16,094 - filter_agent - INFO - Article 10 scored 1. Reasoning: Статья не имеет прямого отношения к теме, так как она рассматривает явление термионного полевого излучения и силу Кулона между магнитными монополями в спин-леде. В ней нет упоминания о водоразделении, втором эффекте Вина, ионообменных мембранах, электродиализе или перенасыщенном токе.
+2026-05-18 03:27:34,063 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:27:34,065 - filter_agent - INFO - Article 11 scored 2. Reasoning: Статья, посвященная AC Wien эффекту в спин-леде и нелинейной неэквilibrium чувствительности 'магнетолайта', имеет низкую релевантность для темы влияния расщепления и рекомбинации водных молекул на транспортные явления в электромембранных системах. Основная область исследования статьи связана с фермионами магнитного монополя, а не с процессами расщепления воды и транспортом ионов через ионообменные мембраны.
+2026-05-18 03:27:56,735 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:27:56,736 - filter_agent - INFO - Article 12 scored 3. Reasoning: Статья 'Onsager's Wien Effect on a Lattice' рассматривает Второй эффект Вина в контексте слабого электролита при умеренных и высоких электрических полях. Хотя это связано с темой, так как оба исследования затрагивают нелинейные явления в электромембранных системах, статья не рассматривает прямое влияние расщепления и рекомбинации водородных молекул на транспортные процессы. В ней также отсутствуют ключевые термины, такие как 'расщепление воды', 'ионообменные мембраны' и 'перелимитирующий ток'. Поэтому статья имеет ограниченную релевантность теме.
+2026-05-18 03:27:56,739 - filter_agent - INFO - Filter agent finished.
+2026-05-18 03:27:56,740 - __main__ - INFO - --- PHASE 3: ANALYZING ---
+2026-05-18 03:27:56,783 - analyst_agent - INFO - Analyst agent starting...
+2026-05-18 03:27:56,785 - analyst_agent - INFO - No approved articles to analyze.
+2026-05-18 03:27:56,786 - __main__ - INFO - --- PHASE 4: EXPORTING ---
+2026-05-18 03:27:56,786 - exporter - INFO - Exporter starting...
+2026-05-18 03:27:56,792 - exporter - INFO - Exported 0 articles to /app/downloads/analyzed_articles.json
+2026-05-18 03:27:56,793 - exporter - INFO - Exporter finished.
+2026-05-18 03:27:56,793 - __main__ - INFO - Multi-Agent System finished its run.
+2026-05-18 03:35:12,378 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 03:35:12,392 - db_manager - INFO - Connection pool created successfully
+2026-05-18 03:35:12,393 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 03:35:12,433 - fetcher_agent - INFO - Fetcher agent (Playwright + AI Parser Mode) starting...
+2026-05-18 03:35:13,540 - fetcher_agent - INFO - Fetching arXiv HTML for term: water dissociation membrane
+2026-05-18 03:35:25,588 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:36:34,449 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:36:34,450 - fetcher_agent - INFO - AI extracted 8 articles from arXiv.
+2026-05-18 03:36:37,472 - fetcher_agent - INFO - Fetching arXiv HTML for term: water splitting electrodialysis
+2026-05-18 03:36:44,693 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:36:45,300 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:36:45,300 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 03:36:48,303 - fetcher_agent - INFO - Fetching arXiv HTML for term: overlimiting current
+2026-05-18 03:37:13,796 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:38:00,752 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:38:00,753 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 03:38:03,768 - fetcher_agent - INFO - Fetching arXiv HTML for term: second Wien effect
+2026-05-18 03:38:09,033 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:39:05,098 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:39:05,098 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 03:39:08,114 - fetcher_agent - INFO - Fetching Scopus HTML for term: water dissociation membrane
+2026-05-18 03:39:11,655 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:39:12,314 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:39:12,315 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:39:15,318 - fetcher_agent - INFO - Fetching Scopus HTML for term: water splitting electrodialysis
+2026-05-18 03:39:18,497 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:39:19,034 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:39:19,035 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:39:22,036 - fetcher_agent - INFO - Fetching Scopus HTML for term: overlimiting current
+2026-05-18 03:39:25,231 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:39:25,760 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:39:25,761 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:39:29,612 - fetcher_agent - INFO - Fetching Scopus HTML for term: second Wien effect
+2026-05-18 03:39:32,791 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:39:33,321 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:39:33,321 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:39:36,324 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water dissociation membrane
+2026-05-18 03:39:43,746 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:39:46,320 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:39:46,321 - fetcher_agent - INFO - AI extracted 1 articles from Web of Science.
+2026-05-18 03:39:49,324 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water splitting electrodialysis
+2026-05-18 03:39:54,499 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:39:57,125 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:39:57,126 - fetcher_agent - INFO - AI extracted 1 articles from Web of Science.
+2026-05-18 03:40:00,982 - fetcher_agent - INFO - Fetching Web of Science HTML for term: overlimiting current
+2026-05-18 03:40:06,080 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:40:08,656 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:40:08,657 - fetcher_agent - INFO - AI extracted 1 articles from Web of Science.
+2026-05-18 03:40:11,659 - fetcher_agent - INFO - Fetching Web of Science HTML for term: second Wien effect
+2026-05-18 03:40:16,772 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:40:19,312 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:40:19,312 - fetcher_agent - INFO - AI extracted 1 articles from Web of Science.
+2026-05-18 03:40:22,313 - fetcher_agent - INFO - Fetching eLibrary HTML...
+2026-05-18 03:40:28,153 - fetcher_agent - INFO - AI is parsing HTML from eLibrary...
+2026-05-18 03:40:29,980 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:40:29,981 - fetcher_agent - INFO - AI extracted 0 articles from eLibrary.
+2026-05-18 03:40:33,080 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 03:40:33,080 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 03:40:33,121 - filter_agent - INFO - Filter agent starting...
+2026-05-18 03:40:55,815 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:40:55,816 - filter_agent - INFO - Article 1 scored 2. Reasoning: Статья не содержит ключевых терминов и концепций, связанных с электромембранными системами (EMS), такими как разделение воды, второй Виенский эффект, ионообменные мембраны, электрофильтрация, сверхлимитирующий ток и сдвиг pH. Она рассматривает самоорганизацию полимеров на жидких интерфейсах с использованием водородных связей для создания самовосстанавливающихся мембран.
+2026-05-18 03:41:07,241 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:41:07,242 - filter_agent - INFO - Article 2 scored 2. Reasoning: Статья посвящена конденсации и транспорту воды в пористых мембранах из алюмоксидов. Она не рассматривает влияние расщепления и рекомбинации водородных молекул, электромембранные системы или эффект Вейна второго рода, что делает её менее релевантной для темы исследования.
+2026-05-18 03:41:15,534 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:41:15,535 - filter_agent - INFO - Article 3 scored 2. Reasoning: Статья посвящена процессам образования и разложения метановых гидратов в пористых средах. Она не имеет прямого отношения к теме водоразделения, второму Виенновскому эффекту или транспортным явлениям в электромембранных системах.
+2026-05-18 03:41:25,053 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:41:25,053 - filter_agent - INFO - Article 4 scored 3. Reasoning: Статья рассматривает теорию шок-электродиализа и не затрагивает ключевые научные термины, такие как разделение воды, второй Вин效应,离子交换膜，电渗析，超极限电流，pH变化和Nernst-Planck-Poisson方程。因此，尽管它与水处理技术相关，但与所讨论的主题关联不大。
+2026-05-18 03:41:43,779 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:41:43,780 - filter_agent - INFO - Article 5 scored 2. Reasoning: Статья, посвященная теории транспорта ионов и воды через мембраны обратного осмоса, не напрямую связана с темой влияния расщепления и рекомбинации водных молекул на транспортные явления в электромембранных системах. Она рассматривает транспорт через мембраны обратного осмоса, что отличается от рассмотрения электромембранных систем (EMS), таких как ионообменные мембраны и электродиализ. В статье не упоминаются ключевые термины, такие как расщепление воды, второй Wien эффект, переграничный ток или сдвиг pH.
+2026-05-18 03:41:55,175 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:41:55,176 - filter_agent - INFO - Article 6 scored 3. Reasoning: Статья рассматривает использование двумерных материалов для мембранных и катализаторских приложений, но не затрагивает прямые аспекты влияния расщепления воды на транспортные явления в электромембранной системе. Она не упоминает ключевые научные термины, такие как второе эффект Вена, ионообменные мембраны или перенасыщенное токовое состояние.
+2026-05-18 03:42:12,469 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:42:12,469 - filter_agent - INFO - Article 7 scored 2. Reasoning: Статья 'Glycerol Inhibits Water Permeation through Plasmodium Falciparum Aquaglyceroporin' не имеет прямого отношения к теме, так как она рассматривает влияние глицерола на пермеацию воды через мембранный белок PfAQP у паразита Плазмодиум фаллипарум. В статье нет упоминания о водоразделении, втором вейн-эффекте, ионообменных мембранах, электродиализе или перенасыщенном токе, что делает ее мало связанной с темой электромембранных систем.
+2026-05-18 03:42:26,557 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:42:26,559 - filter_agent - INFO - Article 8 scored 2. Reasoning: Статья посвящена изучению влияния глицерола на проницаемость воды через транспортный белок GlpF бактерии Escherichia coli. Она не рассматривает явления, связанные с электромембранными системами (EMS), водоразделением или рекомбинацией молекул воды, ионообменными мембранами, электроосмосом или перенасыщенным током. Поэтому она имеет низкую релевантность для темы исследования.
+2026-05-18 03:42:40,965 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:42:40,966 - filter_agent - INFO - Article 9 scored 2. Reasoning: Статья 'Bipolar nanochannels: The effects of an electro-osmotic instability' не рассматривает явления, связанные с расщеплением и рекомбинацией водных молекул. Она фокусируется на влиянии количества ионно-селективных компонентов на ток-напряженную характеристику системы, что не имеет прямого отношения к теме расщепления воды или транспортным процессам в электромембранной системе.
+2026-05-18 03:42:55,193 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:42:55,194 - filter_agent - INFO - Article 10 scored 4. Reasoning: Эта статья имеет некоторую связь с темой, так как она рассматривает явление электроконвекции при поляризации концентрации у ионообменных мембран. Однако ключевые научные термины из первой статьи (например, разделение воды, второй Винн-эффект, переграничный ток) не являются основными темами данной работы. Исследование фокусируется на методе наблюдения электроконвекции и скорее относится к области экспериментальной физики мембранных систем.
+2026-05-18 03:43:13,491 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:43:13,491 - filter_agent - INFO - Article 11 scored 2. Reasoning: Статья 'Линейный анализ устойчивости кратковременного электродепозиции в заряженных пористых средах: подавление дендритного роста за счет поверхностного проводимости' не имеет прямого отношения к теме, связанной с влиянием расщепления и рекомбинации водородных молекул на транспортные явления в электромембранных системах. В данной статье рассматриваются вопросы устойчивости процесса электродепозиции в пористых средах, что не связано с темами воды, ионно-обменных мембран или электродиализом.
+2026-05-18 03:43:30,862 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:43:30,863 - filter_agent - INFO - Article 12 scored 3. Reasoning: Статья 'The driving factors of electro-convective instability in concentration polarization' рассматривает ионный ток через зарядoselective интерфейс в бинарном электролите. Хотя это связано с электрохимической инженерией и микроминиатюрными процессами, ключевые научные термины из статьи 'The influence of water molecule dissociation and recombination on transport phenomena in electromembrane systems (EMS)', такие как водоразделение, второй Вен效应文章和提供的主题相关性较低，因为主要关注点在于电化学工程和微流体过程中的离子电流，而不是水分子的解离与重组对电膜系统传输现象的影响。因此，相关性评分为3。以下是俄语解释：
+2026-05-18 03:43:45,463 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:43:45,464 - filter_agent - INFO - Article 13 scored 2. Reasoning: Статья посвящена линейному анализу устойчивости плоского металлического электрода при стационарной электроотложении. Она не рассматривает влияние расщепления и рекомбинации водородных молекул, ионообменных мембран или эффекта Вена второго порядка, которые являются ключевыми терминами для темы электромембранных систем. Поэтому статья имеет низкую релевантность по сравнению с изучаемой тематикой.
+2026-05-18 03:43:58,975 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:43:58,975 - filter_agent - INFO - Article 14 scored 4. Reasoning: Статья рассматривает ионное ассоциативное взаимодействие в двумерных наноканалах и его влияние на нелинейный ионный транспорт. Хотя она затрагивает тему ионного транспорта, ключевые термины из исходной статьи, такие как разделение воды, второй Вин效应，离子交换膜，电渗析，超极限电流和pH变化，并没有在该文章中提及。因此，尽管主题相关性存在一定的关联，但具体研究内容的重叠较少。
+2026-05-18 03:44:17,612 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:44:17,613 - filter_agent - INFO - Article 15 scored 1. Reasoning: Статья, посвященная исследованию ускорения-излучения при свободном падении атома в горизонт событий заряженной квантово-корректированной черной дыры, не имеет прямого отношения к теме влияния расщепления и рекомбинации водородных молекул на транспортные явления в электромембранных системах. В статье отсутствуют ключевые научные термины, такие как разделение воды, второй Wien эффект, ионообменные мембраны, электро-дialisys, сверхлимитирующий ток, сдвиг pH, уравнения Нернста-Планка-Пуассона.
+2026-05-18 03:44:28,895 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:44:28,896 - filter_agent - INFO - Article 16 scored 1. Reasoning: Статья, посвященная поиску частиц-аксионов в хранилище заряженных бозонов, не имеет прямого отношения к теме электромембранной системы и процессам транспорта. В ней упоминаются ключевые термины, связанные с водородным расщеплением или мембранами, но они не играют роли в контексте исследования.
+2026-05-18 03:44:42,856 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:44:42,857 - filter_agent - INFO - Article 17 scored 1. Reasoning: Статья не имеет прямого отношения к теме, так как она рассматривает экспериментальные данные по магнитным моно poleм в спин-леде и связанный с этим нономический ток. В статье отсутствуют ключевые научные термины, такие как разделение воды, второй Wien эффект, ионообменные мембраны, электродиализ, сверхлимитирующий ток, сдвиг pH и уравнения Нернста-Планка-Пуассона.
+2026-05-18 03:44:58,075 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:44:58,076 - filter_agent - INFO - Article 18 scored 2. Reasoning: Статья, посвященная AC Wien эффекту в спин-леде и нелинейной неэквilibrium чувствительности 'магнетолайта', имеет низкую релевантность для темы влияния расщепления и рекомбинации водных молекул на транспортные явления в электромембранных системах. Основная область исследования статьи связана с фермионами и магнитными монополями, что отличается от темы, связанной с ионно-обменными мембранами и электродиализом.
+2026-05-18 03:45:15,629 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:45:15,630 - filter_agent - INFO - Article 19 scored 3. Reasoning: Статья 'Onsager's Wien Effect on a Lattice' рассматривает Второй эффект Вина в контексте слабого электролита при умеренных и высоких электрических полях. Хотя это связано с темой, так как оба исследования затрагивают нелинейные явления в электромембранных системах, ключевые научные термины из первой статьи (например, разделение воды, мембраны ионного обмена, электроосмос) практически отсутствуют во второй. Вторая статья не рассматривает транспортные явления или влияние pH-сдвига, что делает ее менее релевантной для темы.
+2026-05-18 03:45:15,641 - filter_agent - INFO - Filter agent finished.
+2026-05-18 03:45:15,641 - __main__ - INFO - --- PHASE 3: ANALYZING ---
+2026-05-18 03:45:15,683 - analyst_agent - INFO - Analyst agent starting...
+2026-05-18 03:45:15,684 - analyst_agent - INFO - No approved articles to analyze.
+2026-05-18 03:45:15,685 - __main__ - INFO - --- PHASE 4: EXPORTING ---
+2026-05-18 03:45:15,685 - exporter - INFO - Exporter starting...
+2026-05-18 03:45:15,690 - exporter - INFO - Exported 0 articles to /app/downloads/analyzed_articles.json
+2026-05-18 03:45:15,691 - exporter - INFO - Exporter finished.
+2026-05-18 03:45:15,691 - __main__ - INFO - Multi-Agent System finished its run.
+2026-05-18 03:49:49,563 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 03:49:49,577 - db_manager - INFO - Connection pool created successfully
+2026-05-18 03:49:49,578 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 03:49:49,620 - fetcher_agent - INFO - Fetcher agent (Playwright + AI Parser Mode) starting...
+2026-05-18 03:49:50,256 - fetcher_agent - INFO - Fetching arXiv HTML for term: water dissociation membrane
+2026-05-18 03:49:53,850 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:50:01,233 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:50:01,234 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 03:50:04,238 - fetcher_agent - INFO - Fetching arXiv HTML for term: water splitting electrodialysis
+2026-05-18 03:50:07,498 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:50:07,917 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:50:07,918 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 03:50:10,920 - fetcher_agent - INFO - Fetching arXiv HTML for term: overlimiting current
+2026-05-18 03:50:14,183 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:50:14,609 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:50:14,610 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 03:50:18,468 - fetcher_agent - INFO - Fetching arXiv HTML for term: second Wien effect
+2026-05-18 03:50:49,561 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:51:47,818 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:51:47,819 - fetcher_agent - INFO - AI extracted 7 articles from arXiv.
+2026-05-18 03:51:51,311 - fetcher_agent - INFO - Fetching Scopus HTML for term: water dissociation membrane
+2026-05-18 03:51:54,855 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:51:55,543 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:51:55,544 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:51:58,546 - fetcher_agent - INFO - Fetching Scopus HTML for term: water splitting electrodialysis
+2026-05-18 03:52:01,729 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:52:02,287 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:52:02,288 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:53:15,266 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 03:53:15,284 - db_manager - INFO - Connection pool created successfully
+2026-05-18 03:53:15,284 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 03:53:15,325 - fetcher_agent - INFO - Fetcher agent (Playwright + AI Parser Mode) starting...
+2026-05-18 03:53:15,971 - fetcher_agent - INFO - Fetching arXiv HTML for term: water dissociation membrane
+2026-05-18 03:53:58,214 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:55:44,301 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:55:44,302 - fetcher_agent - INFO - AI extracted 5 articles from arXiv.
+2026-05-18 03:55:47,317 - fetcher_agent - INFO - Fetching arXiv HTML for term: water splitting electrodialysis
+2026-05-18 03:55:50,606 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:55:51,187 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:55:51,188 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 03:55:54,189 - fetcher_agent - INFO - Fetching arXiv HTML for term: overlimiting current
+2026-05-18 03:55:58,315 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:55:58,825 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:55:58,826 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 03:56:01,830 - fetcher_agent - INFO - Fetching arXiv HTML for term: second Wien effect
+2026-05-18 03:56:05,079 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 03:56:05,608 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:56:05,609 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 03:56:08,612 - fetcher_agent - INFO - Fetching Scopus HTML for term: water dissociation membrane
+2026-05-18 03:56:11,999 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:56:12,650 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:56:12,651 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:56:15,655 - fetcher_agent - INFO - Fetching Scopus HTML for term: water splitting electrodialysis
+2026-05-18 03:56:18,837 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:56:19,398 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:56:19,398 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:56:22,402 - fetcher_agent - INFO - Fetching Scopus HTML for term: overlimiting current
+2026-05-18 03:56:26,435 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:56:27,075 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:56:27,076 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:56:30,079 - fetcher_agent - INFO - Fetching Scopus HTML for term: second Wien effect
+2026-05-18 03:56:33,261 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 03:56:33,801 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:56:33,802 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 03:56:36,805 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water dissociation membrane
+2026-05-18 03:56:55,853 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:56:57,362 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:56:57,362 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 03:57:00,366 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water splitting electrodialysis
+2026-05-18 03:57:05,440 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:57:05,991 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:57:05,992 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 03:57:08,994 - fetcher_agent - INFO - Fetching Web of Science HTML for term: overlimiting current
+2026-05-18 03:57:14,112 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:57:14,691 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:57:14,692 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 03:57:17,693 - fetcher_agent - INFO - Fetching Web of Science HTML for term: second Wien effect
+2026-05-18 03:57:22,760 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 03:57:23,289 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:57:23,290 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 03:57:26,293 - fetcher_agent - INFO - Fetching eLibrary HTML...
+2026-05-18 03:57:32,413 - fetcher_agent - INFO - AI is parsing HTML from eLibrary...
+2026-05-18 03:57:33,389 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 03:57:33,390 - fetcher_agent - INFO - AI extracted 0 articles from eLibrary.
+2026-05-18 03:57:36,480 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 03:57:36,480 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 03:57:36,520 - filter_agent - INFO - Filter agent starting...
+2026-05-18 03:57:36,522 - filter_agent - INFO - Filtering article 10.1021/acs.jpclett.5b02346 using ABSTRACT
+2026-05-18 03:58:59,914 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 03:58:59,927 - db_manager - INFO - Connection pool created successfully
+2026-05-18 03:58:59,928 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 03:58:59,971 - fetcher_agent - INFO - Fetcher agent (Playwright + AI Parser Mode) starting...
+2026-05-18 03:59:01,116 - fetcher_agent - INFO - Fetching arXiv HTML for term: water dissociation membrane
+2026-05-18 03:59:16,762 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:01:07,432 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:01:07,433 - fetcher_agent - INFO - AI extracted 5 articles from arXiv.
+2026-05-18 04:01:10,458 - fetcher_agent - INFO - Fetching arXiv HTML for term: water splitting electrodialysis
+2026-05-18 04:01:20,447 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:01:21,119 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:01:21,120 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 04:01:24,124 - fetcher_agent - INFO - Fetching arXiv HTML for term: overlimiting current
+2026-05-18 04:01:27,587 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:03:25,299 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:03:25,300 - fetcher_agent - INFO - AI extracted 6 articles from arXiv.
+2026-05-18 04:03:28,319 - fetcher_agent - INFO - Fetching arXiv HTML for term: second Wien effect
+2026-05-18 04:03:33,632 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:05:09,096 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:05:09,097 - fetcher_agent - INFO - AI extracted 5 articles from arXiv.
+2026-05-18 04:05:12,963 - fetcher_agent - INFO - Fetching Scopus HTML for term: water dissociation membrane
+2026-05-18 04:05:16,494 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:05:17,141 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:05:17,142 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:05:20,145 - fetcher_agent - INFO - Fetching Scopus HTML for term: water splitting electrodialysis
+2026-05-18 04:05:23,324 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:05:23,845 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:05:23,846 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:05:26,849 - fetcher_agent - INFO - Fetching Scopus HTML for term: overlimiting current
+2026-05-18 04:05:30,030 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:05:30,563 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:05:30,564 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:05:33,566 - fetcher_agent - INFO - Fetching Scopus HTML for term: second Wien effect
+2026-05-18 04:05:36,753 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:05:37,283 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:05:37,284 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:05:40,288 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water dissociation membrane
+2026-05-18 04:05:49,037 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 04:05:49,680 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:05:49,681 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 04:05:52,684 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water splitting electrodialysis
+2026-05-18 04:05:57,929 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 04:05:58,460 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:05:58,461 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 04:06:01,464 - fetcher_agent - INFO - Fetching Web of Science HTML for term: overlimiting current
+2026-05-18 04:06:06,631 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 04:06:07,167 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:06:07,168 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 04:06:10,171 - fetcher_agent - INFO - Fetching Web of Science HTML for term: second Wien effect
+2026-05-18 04:06:16,140 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 04:06:16,677 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:06:16,677 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 04:06:19,679 - fetcher_agent - INFO - Fetching eLibrary HTML...
+2026-05-18 04:06:25,388 - fetcher_agent - INFO - AI is parsing HTML from eLibrary...
+2026-05-18 04:06:26,375 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:06:26,376 - fetcher_agent - INFO - AI extracted 0 articles from eLibrary.
+2026-05-18 04:06:29,460 - fetcher_agent - INFO - ============================================================
+2026-05-18 04:06:29,461 - fetcher_agent - INFO - 🎯 FETCHING PHASE COMPLETE
+2026-05-18 04:06:29,461 - fetcher_agent - INFO - 📊 TOTAL ARTICLES EXTRACTED IN THIS RUN: 16
+2026-05-18 04:06:29,462 - fetcher_agent - INFO - ============================================================
+2026-05-18 04:06:29,462 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 04:06:29,462 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 04:06:29,505 - filter_agent - INFO - Filter agent starting...
+2026-05-18 04:06:29,507 - filter_agent - INFO - Filtering article 10.1021/acs.jpclett.5b02346 using ABSTRACT
+2026-05-18 04:06:57,103 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:06:57,104 - filter_agent - INFO - Article 1 scored 2. Reasoning: Статья рассматривает влияние pH на механические свойства полимерных мембран, собранных с использованием водородных связей. Хотя она затрагивает тему изменения pH и его влияния на мембраны, основное внимание уделяется интерфейсной релаксации и механическим свойствам, а не транспортным процессам или электромембранным системам. Поэтому она имеет низкую степень релевантности для темы 'Влияние расщепления и рекомбинации водородных молекул на транспортные явления в электромембранных системах'.
+2026-05-18 04:06:57,107 - filter_agent - INFO - Filtering article 10.1063/1.4945783 using ABSTRACT
+2026-05-18 04:07:19,870 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:07:19,871 - filter_agent - INFO - Article 2 scored 3. Reasoning: Статья рассматривает теорию транспорта ионов и воды через мембраны обратного осмоса. Она включает в себя анализ силовых воздействий на воду и ионы, а также влияние кислотно-щелочного характера систем карбоновой и борной кислоты. Однако ключевые научные термины из указанной статьи ('водоразделение', 'второй Вейн эффект', 'ионообменные мембраны', 'электродиализ', 'перелимитирующий ток', 'сдвиг pH', 'уравнения Нернста-Планка-Пуассона') не являются центральными для данной работы. Тема статьи, хотя и связана с транспортом воды и ионов через мембраны, не затрагивает специфические аспекты электромембранных систем.
+2026-05-18 04:07:19,874 - filter_agent - INFO - Filtering article 10.1039/c5cp04268a using ABSTRACT
+2026-05-18 04:07:36,479 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:07:36,480 - filter_agent - INFO - Article 3 scored 4. Reasoning: Статья рассматривает взаимодействие воды и других молекул с двумерными материалами, такими как графен и гексагональный борнитрид. Она исследует диссоциацию воды на этих материалах, что может быть связано с процессом разделения воды в электромембранных системах (EMS). Однако основное внимание уделено катализу и выборочной адсорбции, а не транспортным явлениям или теоретическим моделям, таким как уравнения Нернста-Планка-Пуассона. Поэтому статья имеет ограниченную релевантность для темы электромембранных систем.
+2026-05-18 04:07:36,483 - filter_agent - INFO - Filtering article 10.1016/j.jsb.2012.10.007 using ABSTRACT
+2026-05-18 04:10:08,391 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 04:10:08,432 - db_manager - INFO - Connection pool created successfully
+2026-05-18 04:10:08,432 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 04:10:08,472 - fetcher_agent - INFO - Fetcher agent (Playwright + AI Parser Mode) starting...
+2026-05-18 04:10:09,134 - fetcher_agent - INFO - Fetching arXiv HTML for term: water dissociation membrane
+2026-05-18 04:10:15,365 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:11:59,426 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:11:59,427 - fetcher_agent - INFO - AI extracted 5 articles from arXiv.
+2026-05-18 04:12:02,448 - fetcher_agent - INFO - Fetching arXiv HTML for term: water splitting electrodialysis
+2026-05-18 04:12:13,387 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:12:13,996 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:12:13,997 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 04:12:17,000 - fetcher_agent - INFO - Fetching arXiv HTML for term: overlimiting current
+2026-05-18 04:12:24,684 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:14:12,986 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:14:12,987 - fetcher_agent - INFO - AI extracted 6 articles from arXiv.
+2026-05-18 04:14:16,008 - fetcher_agent - INFO - Fetching arXiv HTML for term: second Wien effect
+2026-05-18 04:14:28,026 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:15:56,112 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:15:56,113 - fetcher_agent - INFO - AI extracted 5 articles from arXiv.
+2026-05-18 04:15:59,991 - fetcher_agent - INFO - Fetching Scopus HTML for term: water dissociation membrane
+2026-05-18 04:16:03,528 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:16:04,188 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:16:04,189 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:16:07,192 - fetcher_agent - INFO - Fetching Scopus HTML for term: water splitting electrodialysis
+2026-05-18 04:16:10,367 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:16:10,881 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:16:10,882 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:16:13,884 - fetcher_agent - INFO - Fetching Scopus HTML for term: overlimiting current
+2026-05-18 04:16:17,058 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:16:17,571 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:16:17,572 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:16:20,574 - fetcher_agent - INFO - Fetching Scopus HTML for term: second Wien effect
+2026-05-18 04:16:23,752 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:16:24,266 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:16:24,266 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:16:27,269 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water dissociation membrane
+2026-05-18 04:16:35,496 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 04:16:36,114 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:16:36,115 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 04:16:39,116 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water splitting electrodialysis
+2026-05-18 04:16:44,176 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 04:16:44,695 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:16:44,696 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 04:16:47,697 - fetcher_agent - INFO - Fetching Web of Science HTML for term: overlimiting current
+2026-05-18 04:16:52,775 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 04:16:53,292 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:16:53,293 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 04:16:56,296 - fetcher_agent - INFO - Fetching Web of Science HTML for term: second Wien effect
+2026-05-18 04:17:02,369 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 04:17:02,953 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:17:02,954 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 04:17:05,957 - fetcher_agent - INFO - Fetching eLibrary HTML...
+2026-05-18 04:17:11,615 - fetcher_agent - INFO - AI is parsing HTML from eLibrary...
+2026-05-18 04:17:12,653 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:17:12,653 - fetcher_agent - INFO - AI extracted 0 articles from eLibrary.
+2026-05-18 04:17:15,736 - fetcher_agent - INFO - ============================================================
+2026-05-18 04:17:15,736 - fetcher_agent - INFO - 🎯 FETCHING PHASE COMPLETE
+2026-05-18 04:17:15,737 - fetcher_agent - INFO - 📊 TOTAL ARTICLES EXTRACTED IN THIS RUN: 16
+2026-05-18 04:17:15,737 - fetcher_agent - INFO - ============================================================
+2026-05-18 04:17:15,738 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 04:17:15,738 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 04:17:15,780 - filter_agent - INFO - Filter agent starting...
+2026-05-18 04:17:15,782 - filter_agent - INFO - Filtering article 10.1021/acs.jpclett.5b02346 using ABSTRACT
+2026-05-18 04:17:43,890 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:17:43,891 - filter_agent - INFO - Article 1 scored 2. Reasoning: Статья рассматривает влияние pH на механические свойства полимерных мембран, собранных с использованием водородных связей. Хотя она затрагивает тему изменения pH и его влияния на мембраны, основное внимание уделяется интерфейсной релаксации и механическим свойствам, а не транспортным процессам или электромембранным системам. Поэтому она имеет низкую степень релевантности для темы 'Влияние расщепления и рекомбинации водородных молекул на транспортные явления в электромембранных системах'.
+2026-05-18 04:17:43,896 - filter_agent - INFO - Filtering article 10.1063/1.4945783 using ABSTRACT
+2026-05-18 04:18:06,832 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:18:06,833 - filter_agent - INFO - Article 2 scored 3. Reasoning: Статья рассматривает теорию транспорта ионов и воды через мембраны обратного осмоса. Она включает в себя анализ силовых воздействий на воду и ионы, а также влияние кислотно-щелочного характера систем карбоновой и борной кислоты. Однако ключевые научные термины из указанной статьи ('водоразделение', 'второй Вейн эффект', 'ионообменные мембраны', 'электродиализ', 'перелимитирующий ток', 'сдвиг pH', 'уравнения Нернста-Планка-Пуассона') не являются центральными для данной работы. Тема статьи, хотя и связана с транспортом воды и ионов через мембраны, не затрагивает специфические аспекты электромембранных систем.
+2026-05-18 04:18:06,836 - filter_agent - INFO - Filtering article 10.1039/c5cp04268a using ABSTRACT
+2026-05-18 04:18:23,303 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:18:23,305 - filter_agent - INFO - Article 3 scored 4. Reasoning: Статья рассматривает взаимодействие воды и других молекул с двумерными материалами, такими как графен и гексагональный борнитрид. Она исследует диссоциацию воды на этих материалах, что может быть связано с процессом разделения воды в электромембранных системах (EMS). Однако основное внимание уделено катализу и выборочной адсорбции, а не транспортным явлениям или теоретическим моделям, таким как уравнения Нернста-Планка-Пуассона. Поэтому статья имеет ограниченную релевантность для темы электромембранных систем.
+2026-05-18 04:18:23,310 - filter_agent - INFO - Filtering article 10.1016/j.jsb.2012.10.007 using ABSTRACT
+2026-05-18 04:18:49,481 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:18:49,482 - filter_agent - INFO - Article 4 scored 2. Reasoning: Статья, посвященная влиянию глицерола на проницаемость воды через протеин Plasmodium falciparum aquaglyceroporin (PfAQP), имеет низкую релевантность для темы 'Влияние расщепления и рекомбинации водородных молекул на транспортные явления в электромембранных системах'. Хотя оба исследования связаны с переносом воды через мембрану, статья о PfAQP не затрагивает ключевые научные термины, такие как расщепление воды, второй Wien эффект, ионообменные мембраны, электродиализ, сверхлимитирующий ток, сдвиг pH и уравнения Нернста-Планка-Пуассона. Исследование PfAQP больше связано с биологическими процессами переноса воды в клетках, а не с физико-химическими процессами в электромембранных системах.
+2026-05-18 04:18:49,485 - filter_agent - INFO - Filtering article 10.1017/flo.2024.23 using ABSTRACT
+2026-05-18 04:19:07,343 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:19:07,344 - filter_agent - INFO - Article 5 scored 3. Reasoning: Статья рассматривает влияние электросмических нестабильностей на ток-напряженную характеристику биполярных систем с двумя противоположно заряженными пермеативными областями. Хотя она затрагивает тему сверхлимитирующего тока, основное внимание уделено электросмическим нестабильностям и симметрии системы, что отличается от исследования влияния расщепления воды на транспортные явления в электроемкомерных системах. В статье нет прямого обсуждения водораздела, второго эффекта Вина или ионообменных мембран.
+2026-05-18 04:19:07,349 - filter_agent - INFO - Filtering article 10.1103/PhysRevD.110.026029 using ABSTRACT
+2026-05-18 04:19:18,383 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:19:18,384 - filter_agent - INFO - Article 12 scored 2. Reasoning: Статья не имеет прямого отношения к теме электромембранных систем (EMS) и процессам транспорта в них. Она рассматривает нелинейную нестационарную реакцию 'магнетолита', что связано с монополями Спинового льда, а не с водоразделением или переносом ионов через ионобменные мембраны.
+2026-05-18 04:19:18,387 - filter_agent - INFO - Filtering article 10.1016/j.memsci.2021.119846 using ABSTRACT
+2026-05-18 04:19:40,420 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:19:40,421 - filter_agent - INFO - Article 6 scored 3. Reasoning: Статья рассматривает явление электроконвекции и ее влияние на поляризацию концентрации при интерфейсе ионообменных мембран. Хотя она затрагивает тему ионообменных мембран, которые упоминаются в ключевых терминах, основное внимание уделяется трехмерному наблюдению электроконвекции и ее влиянию на поляризацию концентрации. В статье не рассматривается разделение воды или рекомбинация водородных атомов, которые являются центральными темами в первоначальной статье о влиянии диссоциации и рекомбинации молекул воды на транспортные явления в электромембранных системах. Тем не менее, оба исследования связаны с процессами, происходящими при работе ионобменных мембран.
+2026-05-18 04:19:40,424 - filter_agent - INFO - Filtering article 10.1021/acs.nanolett.8b03695 using ABSTRACT
+2026-05-18 04:19:58,013 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:19:58,016 - filter_agent - INFO - Article 7 scored 3. Reasoning: Статья рассматривает переграничный ток в неравномерных массивах микроканалов, что имеет некоторую связь с темой влияния расщепления и рекомбинации водородных молекул на транспортные явления в электромембранных системах. Оба исследования затрагивают переграничный ток (OLC), но статья, которую нужно проанализировать, фокусируется на геометрии и распределении микроканалов, что отличается от темы водородного расщепления и рекомбинации. Тем не менее, оба исследования связаны с электротранспортными процессами в мембранных системах.
+2026-05-18 04:19:58,019 - filter_agent - INFO - Filtering article 10.1063/1.5024897 using ABSTRACT
+2026-05-18 04:20:15,493 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:20:15,494 - filter_agent - INFO - Article 8 scored 3. Reasoning: Статья 'Theory of voltammetry in charged porous media' не напрямую связана с темой водоразделения и рекомбинации молекул воды в электромембранных системах. Она рассматривает теорию вольтамметрии в заряженных пористых средах, что имеет отношение к электрохимическим процессам, но не затрагивает ключевые термины, такие как водоразделение, второй Wien эффект или ионообменные мембраны. Тем не менее, статья может быть полезна для общего понимания транспортных явлений в электрохимических системах.
+2026-05-18 04:20:15,497 - filter_agent - INFO - Filtering article 10.1103/PhysRevFluids.1.023601 using ABSTRACT
+2026-05-18 04:20:34,871 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:20:34,871 - filter_agent - INFO - Article 9 scored 3. Reasoning: Статья рассматривает факторы, влияющие на электроконвекцию в поляризации концентрации (ECI), что связано с транспортными процессами через зарядoselective интерфейсы. Хотя она затрагивает некоторые общие темы, такие как ионный ток и поляризация концентрации, ключевые термины из исходной статьи (водоразделение, второй Wien эффект, ионообменные мембраны, электродиализ, сверхлимитирующий ток, сдвиг pH) не являются центральными в данном исследовании. Статья больше фокусируется на механизмах развития электроконвекции при достижении лимитирующего тока и роли зарядoselectivity интерфейса.
+2026-05-18 04:20:34,875 - filter_agent - INFO - Filtering article 10.1103/PhysRevFluids.2.043605 using ABSTRACT
+2026-05-18 04:20:47,196 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:20:47,197 - filter_agent - INFO - Article 10 scored 2. Reasoning: Статья посвящена линейному анализу устойчивости плоского металлического электрода при стационарной электроотложке и не затрагивает ключевые научные термины, такие как разделение воды, второй Виенский эффект или ионообменные мембраны. Хотя оба исследования связаны с токами сверхлимитного режима, они рассматривают разные аспекты этого явления.
+2026-05-18 04:20:47,200 - filter_agent - INFO - Filtering article 10.48550/arXiv.2410.03316 using ABSTRACT
+2026-05-18 04:21:02,462 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:21:02,462 - filter_agent - INFO - Article 11 scored 5. Reasoning: Статья рассматривает ионное ассоциативное взаимодействие в двумерных наноканалах, что имеет некоторую связь с темой влияния расщепления воды на транспортные явления в электромембранных системах. В статье упоминается второй Wien эффект, который также обсуждается и в контексте EMS. Однако ключевые термины, такие как водоразделение, мембранный обмен ионами, электродиализ и перенасыщенное токовое состояние, не являются центральными для данной работы.
+2026-05-18 04:21:02,466 - filter_agent - INFO - Filtering article 10.1038/nphys3704 using ABSTRACT
+2026-05-18 04:21:13,315 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:21:13,316 - filter_agent - INFO - Article 13 scored 2. Reasoning: Статья не имеет прямого отношения к теме водораздела и транспортным процессам в электромембранных системах. Она рассматривает магнитные монополи и их взаимодействие в спин-леде, что отличается от исследований воды и ионнообменных мембран.
+2026-05-18 04:21:13,321 - filter_agent - INFO - Filter agent finished.
+2026-05-18 04:21:13,321 - __main__ - INFO - --- PHASE 3: ANALYZING ---
+2026-05-18 04:21:13,364 - analyst_agent - INFO - Analyst agent starting...
+2026-05-18 04:21:13,366 - analyst_agent - INFO - No approved articles to analyze.
+2026-05-18 04:21:13,366 - __main__ - INFO - --- PHASE 4: EXPORTING ---
+2026-05-18 04:21:13,367 - exporter - INFO - Exporter starting...
+2026-05-18 04:21:13,372 - exporter - INFO - Exported 0 articles to /app/downloads/analyzed_articles.json
+2026-05-18 04:21:13,373 - exporter - INFO - Exporter finished.
+2026-05-18 04:21:13,374 - __main__ - INFO - Multi-Agent System finished its run.
+2026-05-18 04:22:51,645 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 04:22:51,658 - db_manager - INFO - Connection pool created successfully
+2026-05-18 04:22:51,659 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 04:22:51,698 - fetcher_agent - INFO - Fetcher agent (Playwright + AI Parser Mode) starting...
+2026-05-18 04:22:52,332 - fetcher_agent - INFO - Fetching arXiv HTML for term: water dissociation membrane
+2026-05-18 04:23:46,352 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:25:20,168 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:25:20,169 - fetcher_agent - INFO - AI extracted 4 articles from arXiv.
+2026-05-18 04:25:23,187 - fetcher_agent - INFO - Fetching arXiv HTML for term: water splitting electrodialysis
+2026-05-18 04:25:26,597 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:25:27,219 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:25:27,220 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 04:25:30,223 - fetcher_agent - INFO - Fetching arXiv HTML for term: overlimiting current
+2026-05-18 04:26:34,911 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:26:35,430 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:26:35,431 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 04:26:38,435 - fetcher_agent - INFO - Fetching arXiv HTML for term: second Wien effect
+2026-05-18 04:26:41,704 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:26:42,210 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:26:42,211 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 04:26:45,212 - fetcher_agent - INFO - Fetching Scopus HTML for term: water dissociation membrane
+2026-05-18 04:26:49,606 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:26:50,235 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:26:50,236 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:26:53,237 - fetcher_agent - INFO - Fetching Scopus HTML for term: water splitting electrodialysis
+2026-05-18 04:26:56,415 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:26:56,962 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:26:56,963 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:26:59,966 - fetcher_agent - INFO - Fetching Scopus HTML for term: overlimiting current
+2026-05-18 04:27:03,148 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:27:03,794 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:27:03,795 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:27:06,798 - fetcher_agent - INFO - Fetching Scopus HTML for term: second Wien effect
+2026-05-18 04:27:09,979 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:27:10,513 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:27:10,514 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:27:13,516 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water dissociation membrane
+2026-05-18 04:27:21,961 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 04:27:22,608 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:27:22,609 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 04:27:25,613 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water splitting electrodialysis
+2026-05-18 04:27:30,750 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 04:27:31,278 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:27:31,279 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 04:27:34,281 - fetcher_agent - INFO - Fetching Web of Science HTML for term: overlimiting current
+2026-05-18 04:27:39,691 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 04:27:40,234 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:27:40,235 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 04:27:43,238 - fetcher_agent - INFO - Fetching Web of Science HTML for term: second Wien effect
+2026-05-18 04:27:48,767 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 04:27:49,775 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:27:49,776 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 04:27:52,777 - fetcher_agent - INFO - Fetching eLibrary HTML...
+2026-05-18 04:27:59,367 - fetcher_agent - INFO - AI is parsing HTML from eLibrary...
+2026-05-18 04:28:00,359 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:28:00,360 - fetcher_agent - INFO - AI extracted 0 articles from eLibrary.
+2026-05-18 04:28:03,451 - fetcher_agent - INFO - ============================================================
+2026-05-18 04:28:03,451 - fetcher_agent - INFO - 🎯 FETCHING PHASE COMPLETE
+2026-05-18 04:28:03,452 - fetcher_agent - INFO - 📊 TOTAL ARTICLES EXTRACTED IN THIS RUN: 4
+2026-05-18 04:28:03,452 - fetcher_agent - INFO - ============================================================
+2026-05-18 04:28:03,453 - fetcher_agent - INFO - Fetcher agent finished.
+2026-05-18 04:28:03,453 - __main__ - INFO - --- PHASE 2: FILTERING ---
+2026-05-18 04:28:03,497 - filter_agent - INFO - Filter agent starting...
+2026-05-18 04:28:03,500 - filter_agent - INFO - Downloading PDF for arXiv:2507.17355 from https://arxiv.org/pdf/2507.17355.pdf...
+2026-05-18 04:28:04,633 - filter_agent - INFO - Generating rolling summary for arXiv:2507.17355
+2026-05-18 04:28:04,633 - filter_agent - INFO - Processing chunk 1/3 for rolling summary...
+2026-05-18 04:28:43,670 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:28:43,671 - filter_agent - INFO - Processing chunk 2/3 for rolling summary...
+2026-05-18 04:29:26,040 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:29:26,041 - filter_agent - INFO - Processing chunk 3/3 for rolling summary...
+2026-05-18 04:30:20,056 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:30:20,057 - filter_agent - INFO - Filtering article arXiv:2507.17355 using FULL TEXT ROLLING SUMMARY
+2026-05-18 04:30:47,787 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:30:47,787 - filter_agent - INFO - Article 1 scored 4. Reasoning: Статья 'pH-зависимая интерфейсная ревматология полимерных мембран, собранных на границе жидкости-жидкость с использованием водородных связей' исследует влияние pH на механические свойства и динамику сборки мембран PMAA-PPO (полиметакриловая кислота - полипропиленоксид) в интерфейсе между водой и полярным маслом, Миглиол. Хотя статья затрагивает тему pH-зависимости и транспорта ионов через мембраны, она не рассматривает прямое влияние расщепления и рекомбинации воды на транспортные явления в электромембранных системах. Тем не менее, статья может быть полезна для понимания общих принципов работы мембран при изменении pH и роли водородных связей в формировании структуры мембран.
+2026-05-18 04:30:47,794 - filter_agent - INFO - Downloading PDF for arXiv:2306.14587 from https://arxiv.org/pdf/2306.14587.pdf...
+2026-05-18 04:30:49,302 - filter_agent - INFO - Generating rolling summary for arXiv:2306.14587
+2026-05-18 04:30:49,302 - filter_agent - INFO - Processing chunk 1/6 for rolling summary...
+2026-05-18 04:31:15,143 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:31:15,144 - filter_agent - INFO - Processing chunk 2/6 for rolling summary...
+2026-05-18 04:31:44,018 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:31:44,018 - filter_agent - INFO - Processing chunk 3/6 for rolling summary...
+2026-05-18 04:32:02,502 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:32:02,502 - filter_agent - INFO - Processing chunk 4/6 for rolling summary...
+2026-05-18 04:32:36,860 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:32:36,861 - filter_agent - INFO - Processing chunk 5/6 for rolling summary...
+2026-05-18 04:33:10,255 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:33:10,256 - filter_agent - INFO - Processing chunk 6/6 for rolling summary...
+2026-05-18 04:33:57,503 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:33:57,504 - filter_agent - INFO - Filtering article arXiv:2306.14587 using FULL TEXT ROLLING SUMMARY
+2026-05-18 04:34:15,142 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:34:15,143 - filter_agent - INFO - Article 2 scored 1. Reasoning: Статья, посвященная оптимизации биформинга для STAR-RIS в ближнем поле коммуникаций и исследованию передачи и отражения сигналов на поверхности рис, не имеет прямого отношения к теме влияния расщепления и рекомбинации водных молекул на транспортные явления в электромембранных системах. Исследование сосредоточено на передаче данных и оптимизации беспроводных сетей, что не связано с химическими процессами воды или физикой ионно-обменных мембран.
+2026-05-18 04:34:15,147 - filter_agent - INFO - Downloading PDF for arXiv:1603.07677 from https://arxiv.org/pdf/1603.07677.pdf...
+2026-05-18 04:34:16,608 - filter_agent - INFO - Generating rolling summary for arXiv:1603.07677
+2026-05-18 04:34:16,609 - filter_agent - INFO - Processing chunk 1/4 for rolling summary...
+2026-05-18 04:34:45,774 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:34:45,775 - filter_agent - INFO - Processing chunk 2/4 for rolling summary...
+2026-05-18 04:35:45,661 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:35:45,662 - filter_agent - INFO - Processing chunk 3/4 for rolling summary...
+2026-05-18 04:36:59,128 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:36:59,129 - filter_agent - INFO - Processing chunk 4/4 for rolling summary...
+2026-05-18 04:37:19,898 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:37:19,899 - filter_agent - INFO - Filtering article arXiv:1603.07677 using FULL TEXT ROLLING SUMMARY
+2026-05-18 04:37:39,799 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:37:39,800 - filter_agent - INFO - Article 3 scored 7. Reasoning: Эта статья имеет значительную степень релевантности теме, так как она исследует диссоциацию молекул воды на различных двухмерных подложках, включая графен и его модифицированные варианты. Хотя основное внимание уделяется теоретическому анализу процессов диссоциации воды с использованием функционала плотности, она предоставляет важные данные о стабильности водных молекул на различных подложках и механизмах транспорта ионов. Это может быть полезно для понимания влияния диссоциации воды на транспортные явления в электромембранных системах, что является ключевым аспектом изучаемой темы.
+2026-05-18 04:37:39,804 - filter_agent - INFO - Downloading PDF for arXiv:1209.5008 from https://arxiv.org/pdf/1209.5008.pdf...
+2026-05-18 04:37:41,295 - filter_agent - INFO - Generating rolling summary for arXiv:1209.5008
+2026-05-18 04:37:41,295 - filter_agent - INFO - Processing chunk 1/3 for rolling summary...
+2026-05-18 04:38:13,003 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:38:13,003 - filter_agent - INFO - Processing chunk 2/3 for rolling summary...
+2026-05-18 04:39:16,884 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:39:16,885 - filter_agent - INFO - Processing chunk 3/3 for rolling summary...
+2026-05-18 04:39:50,413 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:39:50,414 - filter_agent - INFO - Filtering article arXiv:1209.5008 using FULL TEXT ROLLING SUMMARY
+2026-05-18 04:40:05,391 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:40:05,392 - filter_agent - INFO - Article 4 scored 2. Reasoning: Эта статья не имеет прямого отношения к теме, так как она фокусируется на транспорте глицерола и воды через каналы акуаглицирепоринов (aquaglyceroporins) в клетках малярийного паразита. Она не рассматривает процесс расщепления воды или второе явление Вина, что является ключевыми терминами для темы электромембранных систем (EMS). Исследование больше связано с биологическими механизмами транспорта и менее с техническими аспектами EMS.
+2026-05-18 04:40:05,398 - filter_agent - INFO - Filter agent finished.
+2026-05-18 04:40:05,398 - __main__ - INFO - --- PHASE 3: ANALYZING ---
+2026-05-18 04:40:05,445 - analyst_agent - INFO - Analyst agent starting...
+2026-05-18 04:40:05,447 - analyst_agent - INFO - Using rolling summary for deep analysis of arXiv:1603.07677
+2026-05-18 04:41:04,864 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:41:04,865 - analyst_agent - INFO - Article 3 analyzed and translated successfully.
+2026-05-18 04:41:04,868 - analyst_agent - INFO - Analyst agent finished.
+2026-05-18 04:41:04,869 - __main__ - INFO - --- PHASE 4: EXPORTING ---
+2026-05-18 04:41:04,869 - exporter - INFO - Exporter starting...
+2026-05-18 04:41:04,874 - exporter - INFO - Exported 1 articles to /app/downloads/analyzed_articles.json
+2026-05-18 04:41:04,875 - exporter - INFO - Exporter finished.
+2026-05-18 04:41:04,875 - __main__ - INFO - Multi-Agent System finished its run.
+2026-05-18 04:43:02,052 - __main__ - INFO - Starting Multi-Agent System...
+2026-05-18 04:43:02,089 - db_manager - INFO - Connection pool created successfully
+2026-05-18 04:43:02,090 - __main__ - INFO - --- PHASE 1: FETCHING ---
+2026-05-18 04:43:02,134 - fetcher_agent - INFO - Fetcher agent (Playwright + AI Parser Mode) starting...
+2026-05-18 04:43:03,441 - fetcher_agent - INFO - Fetching arXiv HTML for term: water dissociation membrane
+2026-05-18 04:43:07,125 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:43:14,618 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:43:14,619 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 04:43:18,509 - fetcher_agent - INFO - Fetching arXiv HTML for term: water splitting electrodialysis
+2026-05-18 04:44:23,148 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:44:23,862 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:44:23,863 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 04:44:26,866 - fetcher_agent - INFO - Fetching arXiv HTML for term: overlimiting current
+2026-05-18 04:44:30,141 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:44:30,792 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:44:30,793 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 04:44:33,796 - fetcher_agent - INFO - Fetching arXiv HTML for term: second Wien effect
+2026-05-18 04:44:37,071 - fetcher_agent - INFO - AI is parsing HTML from arXiv...
+2026-05-18 04:44:37,647 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:44:37,648 - fetcher_agent - INFO - AI extracted 0 articles from arXiv.
+2026-05-18 04:44:40,649 - fetcher_agent - INFO - Fetching Scopus HTML for term: water dissociation membrane
+2026-05-18 04:44:44,218 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:44:45,059 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:44:45,060 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:44:48,954 - fetcher_agent - INFO - Fetching Scopus HTML for term: water splitting electrodialysis
+2026-05-18 04:44:52,144 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:44:52,847 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:44:52,848 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:44:55,849 - fetcher_agent - INFO - Fetching Scopus HTML for term: overlimiting current
+2026-05-18 04:44:59,035 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:44:59,669 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:44:59,671 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:45:02,672 - fetcher_agent - INFO - Fetching Scopus HTML for term: second Wien effect
+2026-05-18 04:45:05,852 - fetcher_agent - INFO - AI is parsing HTML from Scopus...
+2026-05-18 04:45:06,465 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:45:06,466 - fetcher_agent - INFO - AI extracted 0 articles from Scopus.
+2026-05-18 04:45:09,468 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water dissociation membrane
+2026-05-18 04:45:29,700 - fetcher_agent - INFO - AI is parsing HTML from Web of Science...
+2026-05-18 04:45:30,428 - httpx - INFO - HTTP Request: POST http://host.docker.internal:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:45:30,429 - fetcher_agent - INFO - AI extracted 0 articles from Web of Science.
+2026-05-18 04:45:33,430 - fetcher_agent - INFO - Fetching Web of Science HTML for term: water splitting electrodialysis
