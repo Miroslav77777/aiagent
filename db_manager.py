@@ -11,6 +11,19 @@ class DBManager:
         try:
             self.connection_pool = psycopg2.pool.ThreadedConnectionPool(1, 10, DATABASE_URL)
             logger.info("Connection pool created successfully")
+            
+            # Auto-migrate: add pdf_url if it doesn't exist
+            conn = self.get_connection()
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute("ALTER TABLE articles ADD COLUMN IF NOT EXISTS pdf_url TEXT;")
+                    conn.commit()
+            except Exception as e:
+                conn.rollback()
+                logger.error(f"Migration error: {e}")
+            finally:
+                self.release_connection(conn)
+                
         except Exception as e:
             logger.error(f"Error creating connection pool: {e}")
             raise
@@ -21,16 +34,16 @@ class DBManager:
     def release_connection(self, conn):
         self.connection_pool.putconn(conn)
 
-    def insert_article(self, doi, title, authors, year, abstract):
+    def insert_article(self, doi, title, authors, year, abstract, pdf_url="No PDF"):
         conn = self.get_connection()
         try:
             with conn.cursor() as cursor:
                 cursor.execute("""
-                    INSERT INTO articles (doi, title, authors, year, abstract, status)
-                    VALUES (%s, %s, %s, %s, %s, 'new')
+                    INSERT INTO articles (doi, title, authors, year, abstract, pdf_url, status)
+                    VALUES (%s, %s, %s, %s, %s, %s, 'new')
                     ON CONFLICT (doi) DO NOTHING
                     RETURNING id;
-                """, (doi, title, authors, year, abstract))
+                """, (doi, title, authors, year, abstract, pdf_url))
                 conn.commit()
                 return cursor.fetchone()
         except Exception as e:
@@ -43,7 +56,7 @@ class DBManager:
         conn = self.get_connection()
         try:
             with conn.cursor() as cursor:
-                cursor.execute("SELECT id, doi, title, authors, year, abstract, full_text_path, analysis_results FROM articles WHERE status = %s", (status,))
+                cursor.execute("SELECT id, doi, title, authors, year, abstract, pdf_url, full_text_path, analysis_results FROM articles WHERE status = %s", (status,))
                 return cursor.fetchall()
         except Exception as e:
             logger.error(f"Error fetching articles: {e}")

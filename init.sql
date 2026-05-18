@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS articles (
     authors TEXT,
     year INTEGER,
     abstract TEXT,
+    pdf_url TEXT,
     status TEXT DEFAULT 'new',
     relevance_score INTEGER,
     full_text_path TEXT,

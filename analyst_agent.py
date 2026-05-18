@@ -31,7 +31,7 @@ class AnalystAgent:
             return
 
         for article in articles:
-            article_id, doi, title, authors, year, abstract, full_text_path, analysis_results = article
+            article_id, doi, title, authors, year, abstract, pdf_url, full_text_path, analysis_results = article
             
             rolling_summary = analysis_results.get("rolling_summary") if analysis_results else None
             

@@ -23,50 +23,22 @@ class FilterAgent:
         self.client = Client(host=OLLAMA_BASE_URL)
         self.model = "qwen2.5:14b"
         
-    def _download_and_extract_pdf(self, doi):
-        if not doi:
+    def _download_and_extract_pdf(self, article_id, pdf_url):
+        if not pdf_url or pdf_url.lower() == "no pdf" or not pdf_url.startswith("http"):
             return None, None
             
-        pdf_url = None
-        
-        if doi.startswith("arXiv:"):
-            arxiv_id = doi.split("arXiv:")[1]
-            pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
-        elif "arxiv." in doi.lower():
-            # Handling DOIs like 10.48550/arXiv.2410.03316
-            arxiv_id = doi.split("arXiv.")[1]
-            pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
-            
-        # Try Unpaywall API for standard DOIs to find an Open Access PDF
-        if not pdf_url and "/" in doi:
-            try:
-                unpaywall_url = f"https://api.unpaywall.org/v2/{doi}?email=aiagent@example.com"
-                resp = requests.get(unpaywall_url, timeout=10)
-                if resp.status_code == 200:
-                    data = resp.json()
-                    if data.get("is_oa") and data.get("best_oa_location"):
-                        pdf_url = data["best_oa_location"].get("url_for_pdf")
-            except Exception as e:
-                logger.error(f"Unpaywall API error for {doi}: {e}")
-                
-        if not pdf_url:
-            logger.info(f"No Open Access PDF URL found for {doi}.")
-            return None, None
-            
-        safe_name = doi.replace('/', '_').replace(':', '_')
-        pdf_path = f"/app/downloads/{safe_name}.pdf"
+        pdf_path = f"/app/downloads/article_{article_id}.pdf"
         
         if not os.path.exists(pdf_path):
-            logger.info(f"Downloading PDF for {doi} from {pdf_url}...")
+            logger.info(f"Downloading PDF from {pdf_url}...")
             try:
-                # Pretend to be a browser to avoid 403 Forbidden
-                headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+                headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
                 response = requests.get(pdf_url, headers=headers, timeout=30)
                 response.raise_for_status()
                 with open(pdf_path, 'wb') as f:
                     f.write(response.content)
             except Exception as e:
-                logger.error(f"Failed to download PDF for {doi}: {e}")
+                logger.error(f"Failed to download PDF from {pdf_url}: {e}")
                 return None, None
                 
         try:
@@ -126,9 +98,9 @@ class FilterAgent:
             return
 
         for article in articles:
-            article_id, doi, title, authors, year, abstract, full_text_path, _ = article
+            article_id, doi, title, authors, year, abstract, pdf_url, full_text_path, _ = article
             
-            pdf_path, full_text = self._download_and_extract_pdf(doi)
+            pdf_path, full_text = self._download_and_extract_pdf(article_id, pdf_url)
             if pdf_path and not full_text_path:
                 self.db_manager.update_full_text_path(article_id, pdf_path)
                 

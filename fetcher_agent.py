@@ -16,6 +16,7 @@ class ArticleSchema(BaseModel):
     doi: str
     year: int
     abstract: str
+    pdf_url: str
 
 class ArticleListSchema(BaseModel):
     articles: list[ArticleSchema]
@@ -34,6 +35,18 @@ class FetcherAgent:
         for data in soup(['style', 'script', 'nav', 'footer', 'header']):
             data.decompose()
             
+        # Preserve links so the LLM can extract PDF URLs
+        for a in soup.find_all('a', href=True):
+            href = a['href']
+            if href.startswith('/'):
+                if source_name == "arXiv":
+                    href = f"https://arxiv.org{href}"
+                elif source_name == "Scopus":
+                    href = f"https://www.scopus.com{href}"
+                elif source_name == "Web of Science":
+                    href = f"https://www.webofscience.com{href}"
+            a.replace_with(f"{a.text} [URL: {href}]")
+            
         cleaned_html = ' '.join(soup.stripped_strings)
         text_content = cleaned_html[:15000] 
 
@@ -46,6 +59,7 @@ class FetcherAgent:
         - doi (or article ID if DOI is missing)
         - year of publication (integer)
         - abstract (the summary of the text). If not found, output "No Abstract".
+        - pdf_url (the direct URL to download the PDF, if available). If not found, output "No PDF".
         
         Respond ONLY with valid JSON conforming to the requested schema.
         
@@ -78,7 +92,8 @@ class FetcherAgent:
                         art.get('title'), 
                         art.get('authors', 'Unknown'), 
                         art.get('year', 0), 
-                        art.get('abstract', 'No Abstract')
+                        art.get('abstract', 'No Abstract'),
+                        art.get('pdf_url', 'No PDF')
                     )
         except Exception as e:
             logger.error(f"Error during AI parsing of {source_name}: {e}")
